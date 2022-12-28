@@ -1,0 +1,44 @@
+<html>
+
+<head>
+   <title>Login</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+   <?php
+	session_start();
+	// Recuperer les informations du formulaire et les stocker dans la session actuelle
+	if (!empty($_POST['nom']) && !empty($_POST['prenom'])) {
+		$_SESSION['nom'] = $_POST['nom'];
+		$_SESSION['prenom'] = $_POST['prenom'];
+	}
+
+	// Si il y a un message d'erreur, l'afficher
+	if (!empty($_GET['error'])) {
+		// Met l'erreur en rouge
+		echo "<p style='color:red'>" . $_GET['error'] . "</p>";
+	}
+	?>
+   <header>
+      <nav>
+         <ul>
+            <li><a href="produits.html">Les produits</a></li>
+            <li><a href="panier.html">Mon panier</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#">Mon compte</a></li>
+            <li><a class="selection">Se connecter</a></li>
+         </ul>
+      </nav>
+   </header>
+   <form action="index.html" method="post">
+      <label for="Identifiant">Identifiant</label>
+      <input type="text" name="Identifiant" id="Identifiant">
+      <label for="password" require>Mot de passe</label>
+      <input type="password" name="password" id="password">
+      <input type="submit" value="Envoyer">
+   </form>
+</body>
+
+</html>
