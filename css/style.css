@@ -47,46 +47,7 @@ header nav ul li a.selection {
 	font-weight: bold;
 }
 
-.product-grid {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
 
-.product {
-	background-color: #f8f8f8;
-	border: 1px solid #ccc;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	margin-bottom: 1em;
-	padding: 1em;
-	width: 30%;
-}
-
-.product img {
-	display: block;
-	margin: 0 auto;
-	max-width: 100%;
-}
-
-.product-info {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 0.5em;
-}
-
-.product-name {
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 0;
-}
-
-.product-price {
-	color: #009900;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 0;
-}
 
 table {
 	border-collapse: collapse;

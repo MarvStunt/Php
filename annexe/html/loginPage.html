@@ -7,20 +7,6 @@
 </head>
 
 <body>
-   <?php
-	session_start();
-	// Recuperer les informations du formulaire et les stocker dans la session actuelle
-	if (!empty($_POST['nom']) && !empty($_POST['prenom'])) {
-		$_SESSION['nom'] = $_POST['nom'];
-		$_SESSION['prenom'] = $_POST['prenom'];
-	}
-
-	// Si il y a un message d'erreur, l'afficher
-	if (!empty($_GET['error'])) {
-		// Met l'erreur en rouge
-		echo "<p style='color:red'>" . $_GET['error'] . "</p>";
-	}
-	?>
    <header>
       <nav>
          <ul>
