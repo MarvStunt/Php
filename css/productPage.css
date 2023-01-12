@@ -1,6 +1,14 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
 #product-grid {
    display: flex;
    flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
 }
 
 #product-grid .product a {
@@ -21,15 +29,16 @@
    background-color: #f8f8f8;
    border: 1px solid #ccc;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   margin: .5em;
-   padding: 1em;
-   width: 25em;
+   flex: 1 0 18%;
+   margin-right: 1%;
+   margin-left: 1%;
 }
 
 .product img {
    display: block;
-   margin: 0 auto;
-   max-width: 100%;
+   width: 80%;
+   margin: 10% auto;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .product-info {
@@ -39,15 +48,91 @@
    margin-top: 0.5em;
 }
 
-.product-name {
-   font-size: 1.2em;
+.product .product-name {
    font-weight: bold;
-   margin: 0;
+   font-size: 2vw;
 }
 
-.product-price {
+.product .product-price {
    color: #009900;
-   font-size: 1.2em;
+   font-size: 1.7vw;
    font-weight: bold;
-   margin: 0;
+}
+
+.prod {
+   display: flex;
+   justify-content: center;
+   margin: 1em;
+}
+
+
+.voirProduit {
+   align-items: center;
+   background-image: linear-gradient(144deg, #ec9b04, #ebd409 50%, #eeff00);
+   border: 0;
+   border-radius: 8px;
+   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+   box-sizing: border-box;
+   color: #FFFFFF;
+   display: flex;
+   font-size: 20px;
+   justify-content: center;
+   line-height: 1em;
+   padding: 3px;
+   text-decoration: none;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   white-space: nowrap;
+   cursor: pointer;
+}
+
+.voirProduit:active,
+.voirProduit:hover {
+   outline: 0;
+   color: #000000;
+}
+
+.voirProduit span {
+   background-color: rgb(5, 6, 45);
+   padding: 16px 24px;
+   border-radius: 6px;
+   width: 15vw;
+   height: 2vh;
+   transition: 300ms;
+
+}
+
+.voirProduit:hover span {
+   background: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+   .product {
+      flex: 1 0 23%;
+   }
+
+   .product-name {
+      font-size: 1.2em;
+   }
+
+   .product-price {
+      font-size: 1.2em;
+   }
+
+}
+
+@media screen and (max-width: 550px) {
+   .product {
+      flex: 1 0 38%;
+   }
+
+   .product-name {
+      font-size: 1.2em;
+   }
+
+   .product-price {
+      font-size: 1.2em;
+   }
 }
