@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Mon panier</title>
-   <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
 </head>
+
 <body>
 	<header>
-      <nav>
-         <ul>
-            <li><a href="../php/productPage.php">Les produits</a></li>
-            <li><a class="selection">Mon panier</a></li>
-				<li><a href="../../index.html">Accueil</a></li>
-            <li><a href="#">Mon compte</a></li>
-            <li><a href="loginPage.html">Se connecter</a></li>
-         </ul>
-      </nav>
-   </header>
+		<?php
+		$current_page = "basketPage";
+		require_once(dirname(dirname(__DIR__)) . "/menu.php");
+		?>
+	</header>
 	<main>
 		<h1>Mon panier</h1>
 		<table>
@@ -58,4 +55,5 @@
 		</div>
 	</main>
 </body>
+
 </html>

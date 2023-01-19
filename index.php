@@ -9,15 +9,10 @@
 
 <body>
    <header>
-      <nav>
-         <ul>
-            <li><a href="/annexe/php/productPage.php">Les produits</a></li>
-            <li><a href="/annexe/html/basketPage.html">Mon panier</a></li>
-            <li><a class="selection">Accueil</a></li>
-            <li><a href="#">Mon compte</a></li>
-            <li><a href="/annexe/html/loginPage.html">Se connecter</a></li>
-         </ul>
-      </nav>
+      <?php
+      $current_page = "homePage";
+      require_once(__DIR__ . "/menu.php")
+      ?>
    </header>
    <main>
       <h1>Bienvenue sur notre e-commerce de manga !</h1>

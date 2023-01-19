@@ -3,6 +3,32 @@
    padding: 0;
 }
 
+h1 {
+   position: relative;
+   font-family: "Raleway", sans-serif;
+   font-weight: 300;
+   font-size: 40px;
+   color: #080808;
+   margin: .1vh 0 4vh;
+}
+
+.title h1 {
+   text-align: center;
+   padding: 1vh 0 2vh 0;
+}
+
+.title h1:before {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 60px;
+   height: 1px;
+   content: "";
+   left: 50%;
+   margin-left: -30px;
+   background-color: #777;
+}
+
 #product-grid {
    display: flex;
    flex-direction: row;
@@ -11,22 +37,8 @@
    justify-content: center;
 }
 
-#product-grid .product a {
-   display: inline-block;
-   padding: 0.5em 1em;
-   background-color: #333;
-   color: #fff;
-   text-decoration: none;
-   border-radius: 4px;
-}
-
-#product-grid .product a:hover {
-   background-color: #444;
-}
-
-
 .product {
-   background-color: #f8f8f8;
+   background: radial-gradient(circle, rgba(199,199,199,1) 79%, rgba(110,110,110,1) 100%);
    border: 1px solid #ccc;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    flex: 1 0 18%;
@@ -38,14 +50,7 @@
    display: block;
    width: 80%;
    margin: 10% auto;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.product-info {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 0.5em;
+   box-shadow: 0 0 10px rgb(255, 251, 0);
 }
 
 .product .product-name {
@@ -54,9 +59,10 @@
 }
 
 .product .product-price {
-   color: #009900;
+   color: rgb(255, 251, 0);
    font-size: 1.7vw;
    font-weight: bold;
+   margin-left: 70%;
 }
 
 .prod {
@@ -68,33 +74,23 @@
 
 .voirProduit {
    align-items: center;
-   background-image: linear-gradient(144deg, #ec9b04, #ebd409 50%, #eeff00);
+   background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
    border: 0;
    border-radius: 8px;
-   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+   box-shadow: rgba(19, 19, 19, 0.2) 0 15px 30px -5px;
    box-sizing: border-box;
    color: #FFFFFF;
    display: flex;
    font-size: 20px;
    justify-content: center;
    line-height: 1em;
-   padding: 3px;
+   padding: 1px;
    text-decoration: none;
-   user-select: none;
-   -webkit-user-select: none;
-   touch-action: manipulation;
-   white-space: nowrap;
-   cursor: pointer;
 }
 
-.voirProduit:active,
-.voirProduit:hover {
-   outline: 0;
-   color: #000000;
-}
 
 .voirProduit span {
-   background-color: rgb(5, 6, 45);
+   background-color: rgb(15, 15, 15);
    padding: 16px 24px;
    border-radius: 6px;
    width: 15vw;
@@ -104,7 +100,7 @@
 }
 
 .voirProduit:hover span {
-   background: none;
+   background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
 }
 
 
