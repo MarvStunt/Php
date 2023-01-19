@@ -1,24 +1,28 @@
+<!DOCTYPE html>
 <html>
 
 <head>
    <title>Créer un compte</title>
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
 </head>
 
 <body>
    <header>
-      <nav>
-         <ul>
-            <li><a href="../php/productPage.php">Les produits</a></li>
-            <li><a href="../html/basketPage.html">Mon panier</a></li>
-            <li><a href="../../index.html">Accueil</a></li>
-            <li><a href="#">Mon compte</a></li>
-            <li><a class="selection">S'inscrire</a></li>
-         </ul>
-      </nav>
+   <?php
+   $current_page = "homePage";
+   require_once(dirname(dirname(__DIR__)) . "/menu.php");
+   
+   ?>
    </header>
-   <form action="../php/register.php" method="post">
+   <?php
+   // On affiche le message d'erreur
+   if (!empty($_GET["error"])) {
+      echo "<p style='color:red'>" . $_GET["error"] . "</p>";
+   }
+   ?>
+   <form action="register.php" method="post">
       <label for="email">E-mail</label>
       <input type="text" name="email" id="email">
       <label for="password">Mot de passe</label>

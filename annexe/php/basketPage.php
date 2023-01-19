@@ -1,9 +1,19 @@
+<?php
+require_once __DIR__.'/global.php';
+if(!isLoggedIn()) {
+	 header("Location: loginPage.php?error=Veuillez vous connecter pour accéder à votre panier");
+	 exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<title>Mon panier</title>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
 </head>
 
 <body>

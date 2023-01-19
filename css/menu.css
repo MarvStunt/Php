@@ -39,3 +39,9 @@ nav a:hover {
     height: 7vh;
     margin: .5vh auto 1vh;
 }
+
+.selection {
+    color: rgb(255, 251, 0);
+    font-weight: bold;
+    background-color: rgb(45,45,45);
+}

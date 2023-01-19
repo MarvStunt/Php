@@ -1,23 +1,39 @@
 <?php
-require_once __DIR__ . '/BDD.php';
 // Connexion à la base de données
-try {
-   $BDD = new BDD();
-   $conn = $BDD->getPDO();
-} catch (PDOException $e) {
-   echo "Error : " . $e->getMessage();
-   die();
-}
+require_once __DIR__ . '/PDOSelect.php';
+$pdo = getPdo();
 
-if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['adresse'])) {
+if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'])) {
+
+   
    $email = $_POST['email'];
    $password = $_POST['password'];
    $nom = $_POST['nom'];
    $prenom = $_POST['prenom'];
    $adresse = $_POST['adresse'];
-   $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+   if (!preg_match(('/^[- a-zA-Z]+$/'), $nom)) {
+      header("Location: registerPage.php?error=Saisie nom invalide");
+      die();
+   }
+
+   if (!preg_match(('/^[- a-zA-Z]+$/'),$prenom)) {
+      header("Location: registerPage.php?error=Saisie prenom invalide");
+      die();
+   }
+
+   if (!preg_match(("/^[a-zA-Z0-9.]{2,}+@[a-zA-Z0-9]{2,}[.][a-zA-Z0-9]+/"), $email)) {
+      header("Location: registerPage.php?error=Mauvaise saisis de l'e-mail.");
+      die();
+   }
+
+   if(!preg_match('/^(?=.*[A-Z]{2,})(?=.*[0-9]{2,}).{8,}$/',$password)){
+      header("Location: registerPage.php?error=Mauvaise saisis du mot de passe. Il doit contenir au moins 8 caractères, 2 chiffres et 2 majuscules.");
+      die();
+   }
+
    // Vérification de l'unicité de l'e-mail
-   $requete = $conn->prepare("SELECT email FROM client WHERE email = :email");
+   $requete = $pdo->prepare("SELECT email FROM client WHERE email = :email");
    $requete->bindParam(':email', $email);
    $requete->execute();
    $existing_email = $requete->fetchColumn();
@@ -27,14 +43,18 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nom']) 
       echo 'Cet e-mail est déjà utilisé';
    } else {
       // Préparation de la requête d'insertion
-      $requeteInsertion = $conn->prepare("INSERT INTO client (email, password, nom, prenom, adresse) VALUES (:email, :password, :nom, :prenom, :adresse)");
+      $requeteInsertion = $pdo->prepare("INSERT INTO client (email, password, nom, prenom, adresse) VALUES (:email, :password, :nom, :prenom, :adresse)");
       $requeteInsertion->bindParam(':email', $email);
-      $requeteInsertion->bindParam(':password', $hashed_password);
+      $requeteInsertion->bindParam(':password', $password);
       $requeteInsertion->bindParam(':nom', $nom);
       $requeteInsertion->bindParam(':prenom', $prenom);
       $requeteInsertion->bindParam(':adresse', $adresse);
       $requeteInsertion->execute();
 
-      echo 'Compte créé avec succès';
+      header('Location: loginPage.php?success=Votre compte a bien été créé');
+      die();
    }
+} else {
+   header("Location: registerPage.php?error=Un des champs est manquant");
+   die();
 }

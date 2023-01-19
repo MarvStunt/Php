@@ -3,7 +3,8 @@
 
 <head>
    <meta charset="UTF-8">
-   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="css/menu.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
    <title>Accueil</title>
 </head>
 

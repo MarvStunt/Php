@@ -2,11 +2,12 @@
 
 class product
 {
-    private string $id;
-    private string $name;
-    private string $description;
-    private float $price;
-    private string $img;
+    // On a pas pu mettre de type pour les variables, car l'hébergeur à une version de php trop ancienne et donc ne l'accepte pas
+    private /** string */ $id;
+    private /** string */ $name;
+    private /** string */ $description;
+    private /** float */ $price;
+    private /** string */ $img;
 
     /**
      * Constructeur
