@@ -1,7 +1,7 @@
 <html>
 
 <head>
-   <title>Login</title>
+   <title>Créer un compte</title>
    <meta charset="utf-8">
    <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
 </head>
@@ -14,16 +14,21 @@
             <li><a href="../html/basketPage.html">Mon panier</a></li>
             <li><a href="../../index.html">Accueil</a></li>
             <li><a href="#">Mon compte</a></li>
-            <li><a class="selection">Se connecter</a></li>
-            <li><a href="registerPage.html">S'inscrire</a></li>
+            <li><a class="selection">S'inscrire</a></li>
          </ul>
       </nav>
    </header>
-   <form action="login.php" method="post">
-      <label for="E-mail">E-mail</label>
-      <input type="text" name="E-mail" id="E-mail">
-      <label for="password" require>Mot de passe</label>
+   <form action="../php/register.php" method="post">
+      <label for="email">E-mail</label>
+      <input type="text" name="email" id="email">
+      <label for="password">Mot de passe</label>
       <input type="password" name="password" id="password">
+      <label for="nom">Nom</label>
+      <input type="text" name="nom" id="nom">
+      <label for="prenom">Prénom</label>
+      <input type="text" name="prenom" id="prenom">
+      <label for="adresse">Adresse</label>
+      <input type="text" name="adresse" id="adresse">
       <input type="submit" value="Envoyer">
    </form>
 </body>
