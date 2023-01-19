@@ -12,12 +12,12 @@ class product
     /**
      * Constructeur
      */
-    public function __construct(string $id, string $name, float $price)
+    public function __construct(string $id, string $name, float $price, string $image)
     {
         $this->id = $id;
         $this->name = $name;
         $this->price = $price;
-        $this->img = "/../../assets/img/$id.png";
+        $this->img = "/../../assets/img/$image.png";
         $this->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt, mi eu rhoncus cursus, ante dolor rhoncus ipsum, in consequat libero sapien tincidunt lacus. In porttitor, leo nec iaculis facilisis, lectus magna aliquet nunc, at pharetra orci tellus sit amet odio. Quisque tincidunt imperdiet augue et porttitor.";
     }
 

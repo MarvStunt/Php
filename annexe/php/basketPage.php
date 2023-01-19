@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__.'/global.php';
-if(!isLoggedIn()) {
-	 header("Location: loginPage.php?error=Veuillez vous connecter pour accéder à votre panier");
-	 exit();
+require_once __DIR__ . '/global.php';
+if (!isLoggedIn()) {
+	header("Location: loginPage.php?error=Veuillez vous connecter pour accéder à votre panier");
+	exit();
 }
 
 ?>
@@ -32,36 +32,74 @@ if(!isLoggedIn()) {
 				<th>Quantité</th>
 				<th>Total</th>
 			</tr>
-			<tr>
-				<td>
-					<img src="image1.jpg" alt="Nom de l'article 1" width="50">
-					<span>Nom de l'article 1</span>
-				</td>
-				<td>10€</td>
-				<td>
-					<input type="number" value="1" min="1">
-				</td>
-				<td>10€</td>
-			</tr>
-			<tr>
-				<td>
-					<img src="image2.jpg" alt="Nom de l'article 2" width="50">
-					<span>Nom de l'article 2</span>
-				</td>
-				<td>20€</td>
-				<td>
-					<input type="number" value="2" min="1">
-				</td>
-				<td>40€</td>
-			</tr>
-			<!-- etc. -->
+			<?php
+			// Connexion à la base de données
+			require_once __DIR__ . "/PDOSelect.php";
+			$pdo = getPDO();
+
+			// Récupération du panier du client si il en a un
+			$requetePanier = $pdo->query("SELECT produits FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
+			$panier = $requetePanier->fetch(PDO::FETCH_ASSOC);
+
+			// Transformer le JSON object en tableau php pour le manipuler si il existe
+			if ($panier["produits"] != null) {
+				$panier = json_decode($panier["produits"], true);
+			} else {
+				$panier = [];
+			}
+
+			// On créer un tableau associatif avec l'id du produit en clé et la quantité en valeur
+			$panierQuantite = [];
+			foreach ($panier as $key => $value) {
+				if (array_key_exists($value["id_produit"], $panierQuantite)) {
+					$panierQuantite[$value["id_produit"]] += 1;
+				} else {
+					$panierQuantite[$value["id_produit"]] = 1;
+				}
+			}
+
+			// On affiche les produits du panier
+			foreach ($panierQuantite as $key => $value) {
+				$requeteProd = $pdo->query("SELECT * FROM produit WHERE id_produit = " . $key);
+				$prod = $requeteProd->fetch(PDO::FETCH_ASSOC);
+				echo "<tr>";
+				echo "<td>" . $prod["titreProduit"] . "</td>";
+				echo "<td>" . $prod["prixPublic"] . '€<a href="addOneCart.php?id=' . $key . '"><button>+</button></a>
+																	<a href="delOneCart.php?id=' . $key . '"><button>-</button></a></td>';
+				echo "<td>" . $value . "</td>";
+				echo "<td>" . $prod["prixPublic"] * $value . "€</td>";
+				echo '<td><a href="deleteFromCart.php?id=' . $key . '">
+            <button>supprimer</button>
+         </a></td>';
+				echo "</tr>";
+			}
+
+			?>
 			<tr>
 				<td colspan="3">Total</td>
-				<td>90€</td>
+				<?php
+				// On met à jour le prix total du panier
+				$total = 0;
+				foreach ($panierQuantite as $key => $value) {
+					$requeteProd = $pdo->query("SELECT * FROM produit WHERE id_produit = " . $key);
+					$prod = $requeteProd->fetch(PDO::FETCH_ASSOC);
+					$total += $prod["prixPublic"] * $value;
+				}
+				echo "<td>" . $total . "€</td>";
+				?>
 			</tr>
 		</table>
 		<div>
-			<button>Commander</button>
+			<script 
+				src="https://checkout.stripe.com/checkout.js" 
+				class="stripe-button" 
+				data-key="pk_test_51MS6goLwcdkoHZOt2KK1rotu8dEsbqiIgrN03b7OUwmunNrput0GP1T369gQXKbwp9yk3s6mFkMMkzXCe2godwnO00EwvZBKOO" 
+				data-amount=<?= $total * 100 ?> 
+				data-name="Manga-K" 
+				data-locale="auto" 
+				data-currency="eur" 
+				data-label="Commander">
+			</script>
 		</div>
 	</main>
 </body>

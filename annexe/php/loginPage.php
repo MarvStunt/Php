@@ -1,4 +1,15 @@
+<?php
+include __DIR__ . "/global.php";
+// Si il est déjà conencter alors
+if (isLoggedIn()) {
+   // Redirige vers la page d'accueil
+   header("Location: ../../index.php?error=Vous êtes déjà connecté");
+}
+
+?>
+<!DOCTYPE html>
 <html>
+
 
 <head>
    <title>Login</title>
@@ -20,7 +31,7 @@
       echo "<p style='color:red'>" . $_GET["error"] . "</p>";
    }
 
-   if(!empty($_GET["success"])){
+   if (!empty($_GET["success"])) {
       echo "<p style='color:green'>" . $_GET["success"] . "</p>";
    }
    ?>

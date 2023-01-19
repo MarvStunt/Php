@@ -8,6 +8,5 @@ session_start();
  * @return boolean true si l'utilisateur est connecté, false sinon
  */
 function isLoggedIn() {
-   return !empty($_SESSION["login"]) ? true : false;
-   // On aurait pu faire aussi ça ? return !empty($_SESSION["login"])
+   return !empty($_SESSION["login"]);
 }

@@ -1,3 +1,18 @@
+<?php
+include(__DIR__ . "/annexe/php/global.php");
+
+// Si le cookie login n'est pas vide alors on rétablis la session
+if (!empty($_COOKIE["login"])) {
+   $_SESSION["login"] = $_COOKIE["login"];
+}
+
+// Reception des erreurs
+if (!empty($_GET["error"])) {
+   echo "<p style='color:red'>" . $_GET["error"] . "</p>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

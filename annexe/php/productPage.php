@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/productList.php");
+require_once(__DIR__ . "/PDOSelect.php");
 
 ?>
 
@@ -21,6 +21,11 @@ require_once(__DIR__ . "/productList.php");
          <?php
          $current_page = "productPage";
          require_once(dirname(dirname(__DIR__)) . "/menu.php");
+
+         // On affiche le message d'ajout à son panier en vert
+         if (isset($_GET["add"])) {
+            echo "<p style='color:green'>Le produit a bien été ajouté à votre panier</p>";
+         }
          ?>
       </header>
    </header>
@@ -30,6 +35,33 @@ require_once(__DIR__ . "/productList.php");
       </div>
       <div id="product-grid">
          <?php
+         require_once(__DIR__ . "/product.php");
+         // Connection à la base de données
+         $pdo = getPDO();
+         if ($pdo == null) {
+            echo "Erreur de connexion à la base de données";
+            exit();
+         }
+
+         // Récupération des produits
+         $requeteProd = $pdo->query("SELECT * FROM produit");
+         $products = $requeteProd->fetchAll(PDO::FETCH_ASSOC);
+         // Création des objets Product
+         foreach ($products as $key => $value) {
+            $products[$key] = new Product($value["id_produit"], $value["titreProduit"], $value["prixPublic"], $value["image"]);
+         }
+
+         // Récupération des stocks
+         $requeteStock = $pdo->query("SELECT * FROM gestionStock");
+         $stocks = $requeteStock->fetchAll(PDO::FETCH_ASSOC);
+
+         // On garde que les produits qui n'ont plus de stock
+         foreach ($stocks as $key => $value) {
+            if ($value["quantite"] > 0) {
+               unset($stocks[$key]);
+            }
+         }
+
          foreach ($products as $prod) {
          ?>
             <div class="product">
@@ -37,7 +69,17 @@ require_once(__DIR__ . "/productList.php");
                <div class="product-name"><?= $prod->getName(); ?></div>
                <div class="product-price"><?= $prod->getPrice(); ?> €</div>
                <div class="prod">
-                  <button onclick="location.href='productDesc.php?id=<?= $prod->getId(); ?>'" class="voirProduit" role="button"><span class="text">Voir produit</span></button>
+                  <?php
+                  if (in_array($prod->getId(), array_column($stocks, "id_produit"))) {
+                  ?>
+                     <button onclick="location.href='productDesc.php?id=<?= $prod->getId(); ?>'" class="voirProduitDisabled" role="button" disabled><span class="text">PLUS DE STOCK</span></button>
+                  <?php
+                  } else {
+                  ?>
+                     <button onclick="location.href='productDesc.php?id=<?= $prod->getId(); ?>'" class="voirProduit" role="button"><span class="text">Voir produit</span></button>
+                  <?php
+                  }
+                  ?>
                </div>
             </div>
          <?php

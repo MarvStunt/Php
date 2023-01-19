@@ -71,6 +71,37 @@ h1 {
    margin: 1em;
 }
 
+button .voirProduitDisabled {
+   align-items: center;
+   background-image: red;
+   border: 0;
+   border-radius: 8px;
+   box-shadow: red;
+   box-sizing: border-box;
+   color: #FFFFFF;
+   display: flex;
+   font-size: 20px;
+   justify-content: center;
+   line-height: 1em;
+   padding: 1px;
+   text-decoration: none;
+}
+
+.voirProduitDisabled span {
+   align-items: center;
+   background-image: color;
+   border: 0;
+   border-radius: 8px;
+   box-shadow: red;
+   box-sizing: border-box;
+   color: red;
+   display: flex;
+   font-size: 20px;
+   justify-content: center;
+   line-height: 1em;
+   padding: 1px;
+   text-decoration: none;
+}
 
 .voirProduit {
    align-items: center;
@@ -103,7 +134,33 @@ h1 {
    background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
 }
 
+.productDesc {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 1em;
+}
 
+.productDesc img {
+   max-width: 25%;
+   margin: 1em;
+}
+
+.productDesc h2 {
+   font-size: 1.5em;
+   font-weight: bold;
+   margin: 1em;
+}
+
+.productDesc p {
+   font-size: 1em;
+   margin: 1em;
+}
+
+.productDesc button {
+   margin: 1em;
+}
 @media screen and (max-width: 1000px) {
    .product {
       flex: 1 0 23%;

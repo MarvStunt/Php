@@ -1,5 +1,5 @@
 <div class="logo">
-   <img src="/assets/img/logo.jpeg" alt="logo" class="logo">
+   <img src="/assets/img/logo.png" alt="logo" class="logo">
 </div>
 
 <nav>
