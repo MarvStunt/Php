@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/global.php';
+require_once dirname(__DIR__) . '/global.php';
+
 if (!isLoggedIn()) {
 	header("Location: loginPage.php?error=Veuillez vous connecter pour accéder à votre panier");
 	exit();
@@ -12,15 +13,15 @@ if (!isLoggedIn()) {
 
 <head>
 	<title>Mon panier</title>
-	<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../../../css/menu.css" media="screen" />
 </head>
 
 <body>
 	<header>
 		<?php
 		$current_page = "basketPage";
-		require_once(dirname(dirname(__DIR__)) . "/menu.php");
+		require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
 		?>
 	</header>
 	<main>
@@ -34,7 +35,7 @@ if (!isLoggedIn()) {
 			</tr>
 			<?php
 			// Connexion à la base de données
-			require_once __DIR__ . "/PDOSelect.php";
+			require_once dirname(__DIR__) . "/database/PDOSelect.php";
 			$pdo = getPDO();
 
 			// Récupération du panier du client si il en a un
@@ -64,11 +65,11 @@ if (!isLoggedIn()) {
 				$prod = $requeteProd->fetch(PDO::FETCH_ASSOC);
 				echo "<tr>";
 				echo "<td>" . $prod["titreProduit"] . "</td>";
-				echo "<td>" . $prod["prixPublic"] . '€<a href="addOneCart.php?id=' . $key . '"><button>+</button></a>
-																	<a href="delOneCart.php?id=' . $key . '"><button>-</button></a></td>';
+				echo "<td>" . $prod["prixPublic"] . '€<a href="../pay/addOneCart.php?id=' . $key . '"><button>+</button></a>
+																	<a href="../pay/delOneCart.php?id=' . $key . '"><button>-</button></a></td>';
 				echo "<td>" . $value . "</td>";
 				echo "<td>" . $prod["prixPublic"] * $value . "€</td>";
-				echo '<td><a href="deleteFromCart.php?id=' . $key . '">
+				echo '<td><a href="../pay/deleteFromCart.php?id=' . $key . '">
             <button>supprimer</button>
          </a></td>';
 				echo "</tr>";
@@ -90,15 +91,7 @@ if (!isLoggedIn()) {
 			</tr>
 		</table>
 		<div>
-			<script 
-				src="https://checkout.stripe.com/checkout.js" 
-				class="stripe-button" 
-				data-key="pk_test_51MS6goLwcdkoHZOt2KK1rotu8dEsbqiIgrN03b7OUwmunNrput0GP1T369gQXKbwp9yk3s6mFkMMkzXCe2godwnO00EwvZBKOO" 
-				data-amount=<?= $total * 100 ?> 
-				data-name="Manga-K" 
-				data-locale="auto" 
-				data-currency="eur" 
-				data-label="Commander">
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_51MS6goLwcdkoHZOt2KK1rotu8dEsbqiIgrN03b7OUwmunNrput0GP1T369gQXKbwp9yk3s6mFkMMkzXCe2godwnO00EwvZBKOO" data-amount=<?= $total * 100 ?> data-name="Manga-K" data-locale="auto" data-currency="eur" data-label="Commander">
 			</script>
 		</div>
 	</main>

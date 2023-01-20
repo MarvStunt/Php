@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . "/global.php";
-require_once (__DIR__ . "/PDOSelect.php");
+require_once (dirname(__DIR__) . "/global.php");
+require_once (dirname(__DIR__) . "/database/PDOSelect.php");
 
 // On vérifie si l'utilisateur est connecté
 if (!isLoggedIn()) {
-    header("Location: loginPage.php?error=Veuillez vous connecter");
+    header("Location: ../account/loginPage.php?error=Veuillez vous connecter");
     exit();
 }
 
@@ -44,6 +44,6 @@ if ($requetePanier->rowCount() > 0) {
 }
 
 // On renvois l'utilisateur sur la page produits et lui disant que son article à bien été ajouté au panie
-header("Location: productPage.php?add=true");
+header("Location: ../products/productPage.php?add=true");
 
 

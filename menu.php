@@ -9,11 +9,11 @@
          <li><a <?php
                   if ($current_page === "productPage") {
                      echo "class=\"selection\"";
-                  } ?>href="/annexe/php/productPage.php">Les produits</a></li>
+                  } ?>href="/annexe/php/products/productPage.php">Les produits</a></li>
          <li><a <?php
-                  if ($current_page === "bestSeller") {
+                  if ($current_page === "BestSeller") {
                      echo "class=\"selection\"";
-                  } ?>href="/annexe/php/bestSellerPage.php">Meilleures ventes</a></li>
+                  } ?>href="/annexe/php/products/productPage.php?BestSeller=yes">Meilleures ventes</a></li>
          <li><a <?php
                   if ($current_page === "homePage") {
                      echo "class=\"selection\"";
@@ -21,12 +21,12 @@
          <li><a <?php
                   if ($current_page === "New") {
                      echo "class=\"selection\"";
-                  } ?>href="/annexe/php/NewPage.php">Nouvautées</a></li>
+                  } ?>href="/annexe/php/products/productPage.php?New=yes">Nouvautées</a></li>
       </ul>
    </div>
    <div class="right">
-      <a href="/annexe/php/loginPage.php"><img class="basket" src="/assets/img/pp.png"></a>
-      <a href="/annexe/php/productPage.php"><img class="basket" src="/assets/img/basket.png"></a>
+      <a href="/annexe/php/account/loginPage.php"><img class="basket" src="/assets/img/pp.png"></a>
+      <a href="/annexe/php/account/basketPage.php"><img class="basket" src="/assets/img/basket.png"></a>
    </div>
 
 </nav>

@@ -3,9 +3,9 @@
 
 <head>
    <title>Produits - E-commerce de manga</title>
-   <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../css/productPage.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/productPage.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/menu.css" media="screen" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
@@ -13,14 +13,14 @@
    <header>
       <?php
       $current_page = "productDesc";
-      require_once(dirname(dirname(__DIR__)) . "/menu.php");
+      require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
       ?>
    </header>
    <main>
       <h1>Nos produits</h1>
       <?php
       require_once(__DIR__ . "/product.php");
-      require_once(__DIR__ . "/PDOSelect.php");
+      require_once(dirname(__DIR__) . "/database/PDOSelect.php");
       // Reception de l'id du produit
       $id_prod = $_GET["id"];
 
@@ -45,7 +45,7 @@
       ?>
       <div class="productDesc">
          <div class="productDescImg">
-            <img src="../../img/<?= $product->getImg() ?>" alt="<?= $product->getName() ?>">
+            <img src="../../../img/<?= $product->getImg() ?>" alt="<?= $product->getName() ?>">
          </div>
          <div class="productDescText">
             <h2><?= $product->getName() ?></h2>
@@ -53,7 +53,7 @@
             <p>Stock : <?= $stock["quantite"] ?></p>
             <p><?= $product->getDescription() ?></p>
          </div>
-         <a href="addToCart.php?id=<?= $id_prod ?>">
+         <a href="../pay/addToCart.php?id=<?= $id_prod ?>">
             <button>Ajouter au panier</button>
          </a>
       </div>

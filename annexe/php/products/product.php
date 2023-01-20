@@ -17,7 +17,7 @@ class product
         $this->id = $id;
         $this->name = $name;
         $this->price = $price;
-        $this->img = "/../../assets/img/$image.png";
+        $this->img = "/../../../assets/img/$image.png";
         $this->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt, mi eu rhoncus cursus, ante dolor rhoncus ipsum, in consequat libero sapien tincidunt lacus. In porttitor, leo nec iaculis facilisis, lectus magna aliquet nunc, at pharetra orci tellus sit amet odio. Quisque tincidunt imperdiet augue et porttitor.";
     }
 

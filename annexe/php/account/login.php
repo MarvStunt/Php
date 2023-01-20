@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/PDOSelect.php';
-require_once __DIR__ . '/global.php';
+require_once dirname(__DIR__) . '/database/PDOSelect.php';
+require_once dirname(__DIR__) . '/global.php';
 $pdo = getPdo();
 
 
@@ -38,7 +38,7 @@ if (!empty($_POST['E-mail']) && !empty($_POST['password'])) {
          setcookie("login", $user["email"], time() + 600);
       }
 
-      header('Location:../../index.php');
+      header('Location:../../../index.php');
       die();
    } else {
       header("Location: loginPage.php?error=Identifiants incorrects");

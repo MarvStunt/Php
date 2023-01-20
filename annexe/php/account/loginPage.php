@@ -1,9 +1,9 @@
 <?php
-include __DIR__ . "/global.php";
+include dirname(__DIR__) . "/global.php";
 // Si il est déjà conencter alors
 if (isLoggedIn()) {
    // Redirige vers la page d'accueil
-   header("Location: ../../index.php?error=Vous êtes déjà connecté");
+   header("Location: ../../../index.php?error=Vous êtes déjà connecté");
 }
 
 ?>
@@ -14,15 +14,15 @@ if (isLoggedIn()) {
 <head>
    <title>Login</title>
    <meta charset="utf-8">
-   <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/menu.css" media="screen" />
 </head>
 
 <body>
    <header>
       <?php
       $current_page = "loginPage";
-      require_once(dirname(dirname(__DIR__)) . "/menu.php");
+      require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
       ?>
    </header>
    <?php

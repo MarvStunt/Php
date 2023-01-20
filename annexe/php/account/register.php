@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-require_once __DIR__ . '/PDOSelect.php';
+require_once dirname(__DIR__) . '/database/PDOSelect.php';
 $pdo = getPdo();
 
 if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'])) {

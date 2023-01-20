@@ -3,32 +3,6 @@
    padding: 0;
 }
 
-h1 {
-   position: relative;
-   font-family: "Raleway", sans-serif;
-   font-weight: 300;
-   font-size: 40px;
-   color: #080808;
-   margin: .1vh 0 4vh;
-}
-
-.title h1 {
-   text-align: center;
-   padding: 1vh 0 2vh 0;
-}
-
-.title h1:before {
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   width: 60px;
-   height: 1px;
-   content: "";
-   left: 50%;
-   margin-left: -30px;
-   background-color: #777;
-}
-
 #product-grid {
    display: flex;
    flex-direction: row;
@@ -71,38 +45,6 @@ h1 {
    margin: 1em;
 }
 
-button .voirProduitDisabled {
-   align-items: center;
-   background-image: red;
-   border: 0;
-   border-radius: 8px;
-   box-shadow: red;
-   box-sizing: border-box;
-   color: #FFFFFF;
-   display: flex;
-   font-size: 20px;
-   justify-content: center;
-   line-height: 1em;
-   padding: 1px;
-   text-decoration: none;
-}
-
-.voirProduitDisabled span {
-   align-items: center;
-   background-image: color;
-   border: 0;
-   border-radius: 8px;
-   box-shadow: red;
-   box-sizing: border-box;
-   color: red;
-   display: flex;
-   font-size: 20px;
-   justify-content: center;
-   line-height: 1em;
-   padding: 1px;
-   text-decoration: none;
-}
-
 .voirProduit {
    align-items: center;
    background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
@@ -130,8 +72,12 @@ button .voirProduitDisabled {
 
 }
 
-.voirProduit:hover span {
-   background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
+.voirProduit:not(:disabled):hover span {
+   background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(59, 59, 59) 100%);
+}
+
+.voirProduit:disabled span{
+   background-color: red;
 }
 
 .productDesc {
@@ -161,6 +107,43 @@ button .voirProduitDisabled {
 .productDesc button {
    margin: 1em;
 }
+
+h1 {
+   position: relative;
+   font-family: "Raleway", sans-serif;
+   font-weight: 300;
+   font-size: 40px;
+   color: #080808;
+   margin: .1vh 0 4vh;
+}
+
+.title h1 {
+   text-align: center;
+   padding: 1vh 0 2vh 0;
+   flex: 1;
+}
+
+.title h1:before {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 60px;
+   height: 1px;
+   content: "";
+   left: 50%;
+   margin-left: -30px;
+   background-color: #777;
+}
+
+.reference {
+   width: 10%;
+   margin: 2vh 1vw 0 1vw;
+}
+
+.title {
+   display: flex;
+}
+
 
 
 

@@ -11,8 +11,8 @@
 <body>
    <header>
    <?php
-   $current_page = "homePage";
-   require_once(dirname(dirname(__DIR__)) . "/menu.php");
+   $current_page = "registerPage";
+   require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
    
    ?>
    </header>

@@ -1,7 +1,7 @@
 <?php
 
-require_once(__DIR__ . "/PDOSelect.php");
-require_once(__DIR__ . "/global.php");
+require_once(dirname(__DIR__) . "/database/PDOSelect.php");
+require_once(dirname(__DIR__) . "/global.php");
 
 $pdo = getPDO();
 $idProduit = $_GET["id"];
@@ -30,4 +30,4 @@ $panier = json_encode($panier);
 // Envoi du panier à la base de données si le panier existe sinon on lui créer un panier
 $requetePanier = $pdo->query("UPDATE panier SET produits = '$panier' WHERE id_client = " . $_SESSION["user"]["id_client"]);
 
-header("Location: basketPage.php");
+header("Location: ../account/basketPage.php");
