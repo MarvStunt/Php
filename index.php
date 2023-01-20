@@ -20,6 +20,7 @@ if (!empty($_GET["error"])) {
    <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="css/menu.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../css/acceuil.css" media="screen" />
    <title>Accueil</title>
 </head>
 
@@ -31,12 +32,26 @@ if (!empty($_GET["error"])) {
       ?>
    </header>
    <main>
-      <h1>Bienvenue sur notre e-commerce de manga !</h1>
-      <p>Retrouvez ici tous vos mangas préférés, ainsi que de nombreux produits dérivés pour compléter votre collection.
-      </p>
-      <p>N'hésitez pas à vous connecter ou à créer un compte pour profiter de tous nos avantages et suivre votre
-         commande en temps réel.</p>
-   </main>
+      <section id="about-us">
+         <h2>Nos Principales References</h2>
+         <ul class="references">
+            <li><a href="#"><img src="/assets/img/One_Piece.png"></a></li>
+            <li><a href="#"><img src="/assets/img/Naruto.png"></a></li>
+            <li><a href="#"><img src="/assets/img/Bleach.png"></a></li>
+            <li><a href="#"><img src="/assets/img/blue_lock.png"></a></li>
+            <li><a href="#"><img src="/assets/img/SNk.png"></a></li>
+            <li><a href="#"><img src="/assets/img/Eyeshield.png"></a></li>
+            <li><a href="#"><img src="/assets/img/MHA.png"></a></li>
+            <li><a href="#"><img src="/assets/img/HXH.png"></a></li>
+         </ul>
+      </section>
+      <footer>
+         <p>Copyright © 2020 Manga Store. All rights reserved.</p>
+      </footer>
+</body>
+
+</html>
+</main>
 </body>
 
 </html>

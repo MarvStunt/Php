@@ -1,37 +1,62 @@
-header {
-	color: #fff;
+@font-face {
+    font-family: 'logo';
+    src: url("../assets/font/Indiana-Jonas-48p.otf") format("opentype");
 }
 
-nav {
+header {
+    background-color: #3a3a3a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar {
     background: rgb(48, 48, 48);
     font-size: large;
-}
-
-nav ul {
-    list-style-type: none;
     display: flex;
     flex-direction: row;
-    margin: 0;
 }
 
-nav ul li {
+.navBar .center {
     flex: 1;
+}
+
+.navBar .left {
+    font-family: logo;
+    font-size: xx-large;
+    padding: 1vh 0 0 1vw;
+}
+
+.navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
-nav a {
-    display: block;
+.navBar li {
+    display: inline-block;
+}
+
+.navBar a {
+    color: #fff;
     text-decoration: none;
-    color: white;
+}
+
+.navBar .center ul li a {
+    display: block;
     transition: all 0.1s ease-in-out;
     padding: 2vh 2vw;
 }
 
-nav a:hover {
+.navBar .right ul li a {
+    display: block;
+    transition: all 0.1s ease-in-out;
+    padding: 1vh 1vw;
+}
+
+.navBar div ul li a:hover {
     color: rgb(255, 251, 0);
-    border-bottom: rgb(255, 251, 0) solid 1px;
-    background-color: rgb(45,45,45);
-    font-weight: bold;
 }
 
 .logo {
@@ -40,8 +65,21 @@ nav a:hover {
     margin: .5vh auto 1vh;
 }
 
-.selection {
+.navBar div ul li .selection {
     color: rgb(255, 251, 0);
     font-weight: bold;
-    background-color: rgb(45,45,45);
 }
+
+.basket {
+    width: 2vw;
+    height: 2vW;
+}
+
+.navBar .right {
+    padding: 1vh 1vw;
+}
+
+.navBar .right a {
+    padding: 1vh 1vw;
+}
+

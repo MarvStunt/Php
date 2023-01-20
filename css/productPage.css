@@ -161,6 +161,14 @@ button .voirProduitDisabled {
 .productDesc button {
    margin: 1em;
 }
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1000px) {
    .product {
       flex: 1 0 23%;
