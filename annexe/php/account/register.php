@@ -1,11 +1,11 @@
 <?php
 // Connexion à la base de données
 require_once dirname(__DIR__) . '/database/PDOSelect.php';
-$pdo = getPdo();
+
 
 if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'])) {
 
-   
+
    $email = $_POST['email'];
    $password = $_POST['password'];
    $nom = $_POST['nom'];
@@ -13,25 +13,25 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom'
    $adresse = $_POST['adresse'];
 
    if (!preg_match(('/^[- a-zA-Z]+$/'), $nom)) {
-      header("Location: registerPage.php?error=Saisie nom invalide");
+      header("Location: registerPage.php?error=nom");
       die();
    }
 
-   if (!preg_match(('/^[- a-zA-Z]+$/'),$prenom)) {
-      header("Location: registerPage.php?error=Saisie prenom invalide");
+   if (!preg_match(('/^[- a-zA-Z]+$/'), $prenom)) {
+      header("Location: registerPage.php?error=prenom");
       die();
    }
 
    if (!preg_match(("/^[a-zA-Z0-9.]{2,}+@[a-zA-Z0-9]{2,}[.][a-zA-Z0-9]+/"), $email)) {
-      header("Location: registerPage.php?error=Mauvaise saisis de l'e-mail.");
+      header("Location: registerPage.php?error=email");
       die();
    }
 
-   if(!preg_match('/^(?=.*[A-Z]{2,})(?=.*[0-9]{2,}).{8,}$/',$password)){
-      header("Location: registerPage.php?error=Mauvaise saisis du mot de passe. Il doit contenir au moins 8 caractères, 2 chiffres et 2 majuscules.");
+   if (!preg_match('/^(?=.*[A-Z]{2,})(?=.*[0-9]{2,}).{8,}$/', $password)) {
+      header("Location: registerPage.php?error=mdp");
       die();
    }
-
+   $pdo = getPdo();
    // Vérification de l'unicité de l'e-mail
    $requete = $pdo->prepare("SELECT email FROM client WHERE email = :email");
    $requete->bindParam(':email', $email);
@@ -55,6 +55,6 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom'
       die();
    }
 } else {
-   header("Location: registerPage.php?error=Un des champs est manquant");
+   header("Location: registerPage.php?error=Veuillez remplir tout les champs");
    die();
 }

@@ -73,7 +73,7 @@ or replace table gestionStock(
 
 -- Value produit
 INSERT INTO
-   produit (referenceProduit,image, iconePresentation, titreProduit, prixPublic, prixAchat, descriptif, nom, auteur)
+   produit (referenceProduit,image, iconePresentation, titreProduit, prixPublic, prixAchat, nom, auteur)
 VALUES
    ("Manga","OPT1","OPT1", "One Piece Tome 1", 17.5, 11,"OnePiece","Eiichiro Oda"),
    ("Manga","OPT2","OPT2", "One Piece Tome 2", 17.5, 11,"OnePiece","Eiichiro Oda"),
@@ -83,40 +83,47 @@ VALUES
    ("Manga","N1","N1", "Naruto Tome 1", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N2","N2", "Naruto Tome 2", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N3","N3", "Naruto Tome 3", 21.5, 15,"Naruto","Masashi Kishimoto"),
-   ("Manga","BL1","BL1", "Blue Lock Tome 1", 20, 14,"Blue Lock", "Yosuke Nomura"),
-   ("Manga","BL2","BL2", "Blue Lock Tome 2", 20, 14,"Blue Lock", "Yosuke Nomura"),
-   ("Manga","BL3","BL3", "Blue Lock Tome 3", 20, 14,"Blue Lock", "Yosuke Nomura"),
-   ("Manga","BL4","BL4", "Blue Lock Tome 4", 20, 14,"Blue Lock", "Yosuke Nomura"),
+
+   ("Manga","BL1","BL1", "Blue Lock Tome 1", 20, 14,"BlueLock", "Yosuke Nomura"),
+   ("Manga","BL2","BL2", "Blue Lock Tome 2", 20, 14,"BlueLock", "Yosuke Nomura"),
+   ("Manga","BL3","BL3", "Blue Lock Tome 3", 20, 14,"BlueLock", "Yosuke Nomura"),
+   ("Manga","BL4","BL4", "Blue Lock Tome 4", 20, 14,"BlueLock", "Yosuke Nomura"),
+   
    ("Manga","B1","B1", "Bleach Tome 1", 22, 16,"Bleach", "Tite Kubo"),
    ("Manga","B2","B2", "Bleach Tome 2", 22, 16,"Bleach", "Tite Kubo"),
    ("Manga","B3","B3", "Bleach Tome 3", 22, 16,"Bleach", "Tite Kubo"),
    ("Manga","B4","B4", "Bleach Tome 4", 22, 16,"Bleach", "Tite Kubo"),
+
    ("Manga","SNK1","SNK1", "SNK Tome 1", 25, 18,"SNK", "Hajime Isayama"),
    ("Manga","SNK2","SNK2", "SNK Tome 2", 25, 18,"SNK", "Hajime Isayama"),
    ("Manga","SNK3","SNK3", "SNK Tome 3", 25, 18,"SNK", "Hajime Isayama"),
    ("Manga","SNK4","SNK4", "SNK Tome 4", 25, 18,"SNK", "Hajime Isayama"),
+
    ("Manga","MHA1","MHA1", "MHA Tome 1", 30, 21,"MHA", "Kohei Horikoshi"),
    ("Manga","MHA2","MHA2", "MHA Tome 2", 30, 21,"MHA", "Kohei Horikoshi"),
    ("Manga","MHA3","MHA3", "MHA Tome 3", 30, 21,"MHA", "Kohei Horikoshi"),
    ("Manga","MHA4","MHA4", "MHA Tome 4", 30, 21,"MHA", "Kohei Horikoshi"),
+
    ("Manga","HXH1","HXH1", "HXH Tome 1", 28, 19,"HXH", "Yoshihiro Togashi"),
    ("Manga","HXH2","HXH2", "HXH Tome 2", 28, 19,"HXH", "Yoshihiro Togashi"),
    ("Manga","HXH3","HXH3", "HXH Tome 3", 28, 19,"HXH", "Yoshihiro Togashi"),
    ("Manga","HXH4","HXH4", "HXH Tome 4", 28, 19,"HXH", "Yoshihiro Togashi"),
+   
    ("Manga","E1","E1", "Eyeshield 21 Tome 1", 27, 18,"Eyeshield", "Yosuke Murata"),
    ("Manga","E2","E2", "Eyeshield 21 Tome 2", 27, 18,"Eyeshield", "Yosuke Murata"),
    ("Manga","E3","E3", "Eyeshield 21 Tome 3", 27, 18,"Eyeshield", "Yosuke Murata"),
    ("Manga","E4","E4", "Eyeshield 21 Tome 4", 27, 18,"Eyeshield", "Yosuke Murata");
 
 -- Value gestionStock
-INSERT INTO
-   gestionStock (id_produit, quantite, dateModif)
-VALUES
-   (1, 100, "2023-01-01"),
-   (2, 100, "2023-01-01"),
-   (3, 100, "2023-01-01"),
-   (4, 100, "2023-01-01"),
-   (5, 100, "2023-01-01"),
-   (6, 100, "2023-01-01"),
-   (7, 100, "2023-01-01"),
-   (8, 100, "2023-01-01");
+INSERT INTO gestionStock (id_produit, quantite, dateModif)
+SELECT id_produit, FLOOR(RAND() * 50) + 50, CURDATE()
+FROM produit;
+
+-- On souhaite modifier les donnés de la table produit où le nom = "Blue Lock" pour le transformer en "BlueLock"
+UPDATE
+   produit
+SET
+   nom = "BlueLock"
+WHERE
+   nom = "Blue Lock";
+   

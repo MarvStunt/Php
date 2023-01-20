@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__DIR__) . '/database/PDOSelect.php';
 require_once dirname(__DIR__) . '/global.php';
-$pdo = getPdo();
+
 
 
 
@@ -11,15 +11,15 @@ if (!empty($_POST['E-mail']) && !empty($_POST['password'])) {
    $password = $_POST['password'];
 
    if (!preg_match(("/^[a-zA-Z0-9.]{2,}+@[a-zA-Z0-9]{2,}[.][a-zA-Z0-9]+/"), $email)) {
-      header("Location: loginPage.php?error=Mauvaise saisis de l'e-mail.");
+      header("Location: loginPage.php?error=email");
       die();
    }
 
    if (!preg_match('/^(?=.*[A-Z]{2,})(?=.*[0-9]{2,}).{8,}$/', $password)) {
-      header("Location: loginPage.php?error=Mauvaise saisis du mot de passe. Il doit contenir au moins 8 caractères, 2 chiffres et 2 majuscules.");
+      header("Location: loginPage.php?error=mdp");
       die();
    }
-
+   $pdo = getPdo();
    // Préparation de la requête pour récupérer l'utilisateur avec l'email et le mot de passe saisis
    $requete = $pdo->prepare("SELECT * FROM client WHERE email = :email");
    $requete->bindParam(':email', $email);
@@ -41,7 +41,7 @@ if (!empty($_POST['E-mail']) && !empty($_POST['password'])) {
       header('Location:../../../index.php');
       die();
    } else {
-      header("Location: loginPage.php?error=Identifiants incorrects");
+      header("Location: loginPage.php?error=Compte inexistant");
       die();
    }
 } else {

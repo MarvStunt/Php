@@ -1,0 +1,126 @@
+.error-message {
+    font-weight: bold;
+    color: red;
+    margin-bottom: 2vh;
+}
+
+.success-message {
+    font-weight: bold;
+    color: rgb(255, 251, 0);
+    margin-bottom: 2vh;
+}
+
+
+
+.login-box {
+    width: 30vw;
+    padding: 2vw;
+    background: #3a3a3a;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+    margin: 3vh auto;
+}
+
+.login-box h2 {
+    margin: 0 0 3vh;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 1.2vh 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 3vh;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1vh 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: rgb(255, 251, 0);
+    font-size: 12px;
+}
+
+.remember {
+    display: flex;
+    flex-direction: row;
+}
+
+.remember input[type="checkbox"] {
+    display: none;
+}
+
+.text {
+    margin-left: 1vw;
+    color: #fff;
+    padding-top: .2vh;
+}
+
+.registered {
+    display: block;
+    background: #fff;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    font-size: medium;
+    color: #3a3a3a;
+    font-weight: bold;
+    text-align: center;
+    margin: 1vh auto 5vh;
+    border: #fff solid 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.registered:hover {
+    cursor: pointer;
+    background: #3a3a3a;
+    color:rgb(255, 251, 0);
+}
+
+.register {
+    color: #fff;
+    text-align: center;
+}
+
+.txt2 {
+    text-decoration: none;
+    color: rgb(255, 251, 0);
+}
+
+
+.personnal {
+    display: flex;
+}
+
+.personnal .user-box:nth-child(2) {
+    flex: 1;
+    margin-left: 1vw;
+}
+
+.personnal .user-box:nth-child(1) {
+    flex: 1;
+    margin-right: 1vw;
+}

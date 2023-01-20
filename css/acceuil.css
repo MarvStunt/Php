@@ -20,12 +20,14 @@ h2 {
     color: #000;
     font-size: xx-large;
     margin-left: 2vw;
+    text-align: center;
 }
 
 .references {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
+    
 }
 
 .references li {
@@ -33,10 +35,18 @@ h2 {
     margin: 2vh 0;
 }
 
-.references li img {
+.references img {
     width: 15vw;
     height: 10vh;
+    transition: 300ms;
+    justify-content: center;
+    text-align: center;
 }
+
+.references img:hover {
+    transform: scale(1.1);
+}
+
 
 footer {
     background-color: #3a3a3a;
@@ -75,4 +85,5 @@ footer {
 
 .voirProduit:not(:disabled):hover span {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(59, 59, 59) 100%);
+    cursor: pointer;
 }

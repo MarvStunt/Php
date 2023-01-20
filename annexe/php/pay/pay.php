@@ -1,23 +1,73 @@
 <?php
-require_once("../../stripe/init.php"); 
+require_once dirname(__DIR__) . "/global.php";
+require_once dirname(__DIR__) . "/database/PDOSelect.php";
+require_once __DIR__ . "/facturation.php";
 
-\Stripe\Stripe::setApiKey("sk_test_51MS6goLwcdkoHZOtKOvrSCJh4T6HbpurRPlmbHVwLk2rR3kZaORXLVQ9hKaHdJW9E1k6082seOwqWH63C0UdAWQb00e9LEXGmW");
+// Connexion à la BDD
+$pdo = getPDO();
 
-$token  = 'pk_test_51MS6goLwcdkoHZOt2KK1rotu8dEsbqiIgrN03b7OUwmunNrput0GP1T369gQXKbwp9yk3s6mFkMMkzXCe2godwnO00EwvZBKOO';
-$email  = 'conilmarvin@gmail.com';
+// Récupération du panier du client si il en a un
+$requetePanier = $pdo->query("SELECT produits FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
+$panier = $requetePanier->fetch(PDO::FETCH_ASSOC);
+// Vérifie que le panier contient des articles
+if (empty($panier["produits"])) {
+    header("Location: /index.php?error=Votre panier est vide.");
+    exit();
+}
 
-$customer = \Stripe\Customer::create(array(
-    'email' => $email,
-    'source'  => $token
-));
+// On récupère les produits du panier
+$panier = json_decode($panier["produits"], true);
 
-$charge = \Stripe\Charge::create(array(
-    'customer' => $customer->id,
-    'amount'   => 500,
-    'currency' => 'eur',
-    'description' => 'Test de paiement Manga-K',
-    'receipt_email' => $email  
-));
+// On créer un tableau associatif avec l'id du produit en clé et la quantité en valeur
+$panierQuantite = [];
+foreach ($panier as $key => $value) {
+    if (array_key_exists($value["id_produit"], $panierQuantite)) {
+        $panierQuantite[$value["id_produit"]] += 1;
+    } else {
+        $panierQuantite[$value["id_produit"]] = 1;
+    }
+}
 
-echo '<h1>Payment accepted!</h1>';
-?>
+
+// On vient supprimer les produits du panier qui n'ont plus de stock
+foreach ($panierQuantite as $key => $value) {
+    $requeteStock = $pdo->query("SELECT quantite FROM gestionStock WHERE id_produit = $key");
+    $stock = $requeteStock->fetch(PDO::FETCH_ASSOC);
+    if ($stock["quantite"] < $value) {
+        unset($panierQuantite[$key]);
+    }
+}
+
+// On vérifie que le panier n'est pas vide
+if (empty($panierQuantite)) {
+    header("Location: /index.php?error=Un article de votre panier n'est plus disponible, merci de le supprimer.");
+    exit();
+}
+
+// On envois le mail confirmant la commande
+
+// Récupération des informations pour envoyer le mail
+$requeteIdPanier = $pdo->query("SELECT id_panier FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
+$idPanier = $requeteIdPanier->fetch(PDO::FETCH_ASSOC);
+
+$total = 0;
+foreach ($panierQuantite as $key => $value) {
+    $requeteProd = $pdo->query("SELECT * FROM produit WHERE id_produit = " . $key);
+    $prod = $requeteProd->fetch(PDO::FETCH_ASSOC);
+    $total += $prod["prixPublic"] * $value;
+}
+
+$date = date("Y-m-d H:i:s");
+$facturation = new facturation($idPanier["id_panier"], $date, $_SESSION["user"]["nom"], $_SESSION["user"]["prenom"], "conilmarvin@gmail.com", $panier,$total);
+if(!$facturation->sendMail()){
+    header("Location: /index.php?error=Une erreur est survenue lors de l'envoi du mail !");
+    exit();
+}
+
+$errorMessage = $facturation->updateBDD();
+if(!empty($errorMessage)){
+    header("Location: /index.php?error=$errorMessage");
+    exit();
+}
+    
+header("Location: /index.php?success=Votre commande à bien été prise en compte, merci de votre confiance.");

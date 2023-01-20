@@ -1,0 +1,187 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    margin: 1vh 2vw;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.table-header {
+    display: block;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header__item {
+    flex-direction: row;
+    padding: 2vh 0;
+    text-align: center;
+    flex: 1;
+}
+
+.table .table-row:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.table-header .header__item:nth-child(1) {
+    flex: 1 0 70%;
+}
+
+.table-header .header__item:nth-child(2),
+.table-header .header__item:nth-child(3),
+.table-header .header__item:nth-child(4) {
+    border-left: #fff solid 2px;
+}
+
+.table-row {
+    display: flex;
+    background-color: rgb(161, 161, 161);
+    border-top: #fff solid 2px;
+}
+
+.table-data {
+    padding: 1vh 0;
+    flex: 1;
+}
+
+.table-row .table-data:nth-child(1) {
+    flex: 1 0 70%;
+    display: flex;
+    align-items: center;
+}
+
+
+.table-row .table-data:nth-child(1) img {
+    width: 4vw;
+    height: 9vh;
+    box-shadow: 0 0 10px rgb(255, 251, 0);
+    margin-left: 1vw;
+}
+
+.table-row .table-data:nth-child(1) .desc {
+    font-size: large;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 1vw;
+}
+
+.table-row .table-data:nth-child(2),
+.table-row .table-data:nth-child(3),
+.table-row .table-data:nth-child(4) {
+    border-left: #fff solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.table-data {
+    flex: 1;
+}
+
+.buy,
+.delete {
+    display: block;
+    background: #fff;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    font-size: medium;
+    color: #3a3a3a;
+    font-weight: bold;
+    text-align: center;
+    margin: 1vh auto 5vh;
+    border: #fff solid 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.buy:hover,
+.delete:hover {
+    cursor: pointer;
+    background: rgb(161, 161, 161);
+    color: rgb(255, 251, 0);
+}
+
+.changeQuantity {
+    display: flex;
+    flex-direction: column;
+}
+
+.changeQuantity button {
+    display: block;
+    background: #fff;
+    border: none;
+    padding: 3px .5vw;
+    margin: 0 .5vw;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.418);
+}
+
+.changeQuantity .quantityPlus {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: #3a3a3a solid 1px;
+}
+
+.changeQuantity .quantityMinus {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: #3a3a3a solid 1px;
+}
+
+.changeQuantity button:hover {
+    cursor: pointer;
+    background: rgb(161, 161, 161);
+    color: rgb(255, 251, 0);
+}
+
+.buy {
+    margin-top: 5vh;
+}
+
+.trash {
+    width: 2vw;
+}
+
+.final {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+h1 {
+    position: relative;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #080808;
+    margin: .1vh 0 4vh;
+}
+
+.title h1 {
+    text-align: center;
+    padding: 1vh 0 2vh 0;
+    flex: 1;
+}
+
+.title h1:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 1px;
+    content: "";
+    left: 50%;
+    margin-left: -30px;
+    background-color: #777;
+}

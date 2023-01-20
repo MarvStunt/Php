@@ -11,6 +11,10 @@ if (!empty($_GET["error"])) {
    echo "<p style='color:red'>" . $_GET["error"] . "</p>";
 }
 
+// Reception des plus de stock
+if (!empty($_GET["success"])) {
+   echo "<p style='color:green'>" . $_GET["success"] . "</p>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +23,8 @@ if (!empty($_GET["error"])) {
 <head>
    <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="css/menu.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../css/menu.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../css/acceuil.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="css/acceuil.css" media="screen" />
    <title>Accueil</title>
 </head>
 
@@ -33,7 +37,9 @@ if (!empty($_GET["error"])) {
    </header>
    <main>
       <section id="reference">
-         <h2>Nos Principales References</h2>
+         <div class="title">
+            <h1>Nos principales références</h1>
+         </div>
          <ul class="references">
             <li><a href="annexe/php/products/productPage.php?reference=OnePiece"><img src="/assets/img/OnePiece.png"></a></li>
             <li><a href="annexe/php/products/productPage.php?reference=Naruto"><img src="/assets/img/Naruto.png"></a></li>
@@ -46,7 +52,9 @@ if (!empty($_GET["error"])) {
          </ul>
       </section>
       <section id="auteurs">
-         <h2>Nos Principaux auteurs</h2>
+         <div class="title">
+            <h1>Nos principaux auteurs</h1>
+         </div>
          <ul class="references">
             <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Eiichiro Oda'" class="voirProduit" role="button"><span class="text">Eiichirō Oda</span></button></li>
             <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Masashi Kishimoto'" class="voirProduit" role="button"><span class="text">Masashi Kishimoto</span></button></li>
@@ -59,7 +67,7 @@ if (!empty($_GET["error"])) {
          </ul>
       </section>
       <footer>
-         <p>Copyright © 2020 Manga K. All rights reserved.</p>
+         <p>Copyright © 2023 Manga K. All rights reserved.</p>
       </footer>
 </body>
 

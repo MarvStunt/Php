@@ -1,5 +1,5 @@
 <div class="logo">
-   <img src="/assets/img/logo.jpeg" alt="logo" class="logo">
+   <a href="https://fr.wikipedia.org/wiki/Manga" target="_blank"><img src="/assets/img/logo.png" alt="logo" class="logo"></a>
 </div>
 
 <nav class="navBar">
@@ -17,7 +17,7 @@
          <li><a <?php
                   if ($current_page === "homePage") {
                      echo "class=\"selection\"";
-                  } ?>href="/index.php">Acceuil</a></li>
+                  } ?>href="/index.php">Accueil</a></li>
          <li><a <?php
                   if ($current_page === "New") {
                      echo "class=\"selection\"";
