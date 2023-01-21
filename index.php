@@ -13,6 +13,7 @@ if (!empty($_COOKIE["login"])) {
 
 <head>
    <meta charset="UTF-8">
+   <link rel="icon" type="image/png" href="assets/img/logo.png" />
    <link rel="stylesheet" type="text/css" href="css/menu.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="css/acceuil.css" media="screen" />

@@ -13,6 +13,7 @@ if ($_SESSION["user"]["email"] != "gerant@gmail.com") {
 
 <head>
    <title>Page admin</title>
+   <link rel="icon" type="image/png" href="../../../../assets/img/logo.png" />
    <link rel="stylesheet" type="text/css" href="../../../../css/style.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../../css/menu.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../../css/adminPage.css" media="screen" />

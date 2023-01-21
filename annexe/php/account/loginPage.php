@@ -20,8 +20,10 @@ if (!empty($_GET["error"])) {
 <html>
 
 <head>
+   <link rel="icon" type="image/png" href="../../../assets/img/logo.png" />
    <title>Login</title>
    <meta charset="utf-8">
+   <link rel="icon" type="image/png" href="../../../assets/img/logo.png" />
    <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../css/menu.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../css/login.css" media="screen" />

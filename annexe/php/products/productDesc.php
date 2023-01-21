@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <link rel="icon" type="image/png" href="../../../assets/img/logo.png" />
    <title>Produits - E-commerce de manga</title>
    <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../css/productDesc.css" media="screen" />
@@ -44,7 +45,7 @@
       $stock = $requeteStock->fetch(PDO::FETCH_ASSOC);
 
       ?>
-      
+
       <div class="productDesc">
          <div class="productDescImg">
             <img src="../../../img/<?= $product->getImg() ?>" alt="<?= $product->getName() ?>">
@@ -65,10 +66,10 @@
             ?>
 
             <div class="description"><?= $product->getDescription() ?></div>
-            
-               <button class="addCart" onclick="location.href='../pay/addToCart.php?id=<?= $id_prod ?>'" class="auteur" role="button">
-                  Ajouter au panier
-               </button>
+
+            <button class="addCart" onclick="location.href='../pay/addToCart.php?id=<?= $id_prod ?>'" class="auteur" role="button">
+               Ajouter au panier
+            </button>
          </div>
 
 

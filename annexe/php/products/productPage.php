@@ -8,6 +8,7 @@
    <html>
 
    <head>
+      <link rel="icon" type="image/png" href="../../../assets/img/logo.png" />
       <title>Produits - E-commerce de manga</title>
       <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="../../../css/productPage.css" media="screen" />
@@ -141,6 +142,6 @@
       </footer>
    </body>
 
-   
+
 
    </html>
