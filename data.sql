@@ -32,15 +32,6 @@ create table panier(
    FOREIGN KEY (id_client) REFERENCES client(id_client)
 );
 
-/*
- Pour utiliser la table panier:
- INSERT INTO panier (produits, id_client) VALUES (JSON_ARRAY( 
- JSON_OBJECT("id_produit", 1, "quantite", 2), 
- JSON_OBJECT("id_produit", 2, "quantite", 4)
- ), 1);
- 
- 
- */
 -- Table facturation
 create table facturation(
    id_facturation int not null primary key auto_increment,
@@ -83,6 +74,7 @@ VALUES
    ("Manga","N1","N1", "Naruto Tome 1", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N2","N2", "Naruto Tome 2", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N3","N3", "Naruto Tome 3", 21.5, 15,"Naruto","Masashi Kishimoto"),
+   ("Manga","N4","N4", "Naruto Tome 4", 21.5, 15,"Naruto","Masashi Kishimoto"),
 
    ("Manga","BL1","BL1", "Blue Lock Tome 1", 20, 14,"BlueLock", "Yosuke Nomura"),
    ("Manga","BL2","BL2", "Blue Lock Tome 2", 20, 14,"BlueLock", "Yosuke Nomura"),
@@ -119,11 +111,4 @@ INSERT INTO gestionStock (id_produit, quantite, dateModif)
 SELECT id_produit, FLOOR(RAND() * 50) + 50, CURDATE()
 FROM produit;
 
--- On souhaite modifier les donnés de la table produit où le nom = "Blue Lock" pour le transformer en "BlueLock"
-UPDATE
-   produit
-SET
-   nom = "BlueLock"
-WHERE
-   nom = "Blue Lock";
    

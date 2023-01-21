@@ -3,7 +3,7 @@ include dirname(__DIR__) . "/global.php";
 // Si il est déjà conencter alors
 if (isLoggedIn()) {
    // Redirige vers la page d'accueil
-   header("Location: ../../../index.php?error=Vous êtes déjà connecté");
+   header("Location: ./myAccountPage.php");
 }
 
 if (!empty($_GET["success"])) {
@@ -48,16 +48,16 @@ if (!empty($_GET["error"])) {
 
       <form action="login.php" method="post">
          <div class="user-box">
-            <input type="text" name="E-mail" id="E-mail" required="">
+            <input type="text" name="E-mail" id="E-mail" required="" autocomplete="off">
 
-            <label>e-mail</label>
+            <label>E-mail</label>
             <?php if (!empty($error) && $error === "email") { ?>
-               <div class="error-message">e-mail invalide</div>
+               <div class="error-message">E-mail invalide</div>
             <?php } ?>
          </div>
          <div class="user-box">
-            <input type="password" name="password" id="password" required="">
-            <label>mot de passe</label>
+            <input type="password" name="password" id="password" required="" autocomplete="off">
+            <label>Mot de passe</label>
             <?php if (!empty($error) && $error === "mdp") { ?>
                <div class="error-message">Mot de passe incorect</div>
             <?php } ?>
@@ -67,7 +67,7 @@ if (!empty($_GET["error"])) {
          <div class="remember">
             <input type="checkbox" name="remember" id="remember">
             <label for="remember"></label>
-            <label class="text" for="remember">se souvenir de moi</label>
+            <label class="text" for="remember">Se souvenir de moi</label>
          </div>
          <div class="connection">
             <input class="connect" type="submit" value="Se connecter">

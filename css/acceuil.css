@@ -4,35 +4,16 @@ body {
     padding: 0;
 }
 
-h2 {
-    text-shadow: 0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
-        0 3px 0 #bbb,
-        0 4px 0 #b9b9b9,
-        0 5px 0 #aaa,
-        0 6px 1px rgba(0, 0, 0, .1),
-        0 0 5px rgba(0, 0, 0, .1),
-        0 1px 3px rgba(0, 0, 0, .3),
-        0 3px 5px rgba(0, 0, 0, .2),
-        0 5px 10px rgba(0, 0, 0, .25),
-        0 10px 10px rgba(0, 0, 0, .2),
-        0 20px 20px rgba(0, 0, 0, .15);
-    color: #000;
-    font-size: xx-large;
-    margin-left: 2vw;
-    text-align: center;
-}
-
 .references {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
-    
 }
 
 .references li {
-    flex: 1 0 25%;
+    flex: 1 0 20%;
     margin: 2vh 0;
+    padding-left: 4vw;
 }
 
 .references img {
@@ -55,9 +36,11 @@ footer {
     text-align: center;
 }
 
+footer p {
+    padding: 1vh 1vw;
+}
 
-.voirProduit {
-    align-items: center;
+.auteur {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
     border: 0;
     border-radius: 8px;
@@ -67,13 +50,15 @@ footer {
     display: flex;
     font-size: 20px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     line-height: 1em;
     padding: 1px;
     text-decoration: none;
 }
 
 
-.voirProduit span {
+.auteur span {
     background-color: #3a3a3a;
     padding: 16px 24px;
     border-radius: 6px;
@@ -83,7 +68,24 @@ footer {
 
 }
 
-.voirProduit:not(:disabled):hover span {
+.auteur:not(:disabled):hover span {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgb(59, 59, 59) 100%);
     cursor: pointer;
+}
+
+.presentation {
+    font-size: x-large;
+    padding: 1vh 1vw;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(255, 251, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+    color: #000;
 }

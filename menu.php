@@ -21,7 +21,7 @@
          <li><a <?php
                   if ($current_page === "New") {
                      echo "class=\"selection\"";
-                  } ?>href="/annexe/php/products/productPage.php?New=yes">Nouvautées</a></li>
+                  } ?>href="/annexe/php/products/productPage.php?New=yes">Nouveautées</a></li>
       </ul>
    </div>
    <div class="right">

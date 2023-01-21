@@ -39,7 +39,7 @@ if (!empty($_GET["error"])) {
 
          <div class="personnal">
             <div class="user-box">
-               <input type="text" name="nom" id="nom" required="">
+               <input autocomplete="off"  type="text" name="nom" id="nom" required="" >
 
                <label for="nom">Nom</label>
                <?php if (!empty($error) && $error === "nom") { ?>
@@ -48,7 +48,7 @@ if (!empty($_GET["error"])) {
             </div>
 
             <div class="user-box">
-               <input type="text" name="prenom" id="prenom" required="">
+               <input autocomplete="off"  type="text" name="prenom" id="prenom" required="" >
 
                <label for="prenom">Prénom</label>
                <?php if (!empty($error) && $error === "prenom") { ?>
@@ -58,7 +58,7 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="user-box">
-            <input type="text" name="adresse" id="adresse" required="">
+            <input autocomplete="off"  type="text" name="adresse" id="adresse" required="" >
 
             <label for="adresse">Adresse</label>
             <?php if (!empty($error) && $error === "adresse") { ?>
@@ -67,25 +67,25 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="user-box">
-            <input type="text" name="email" id="email" required="">
+            <input autocomplete="off"  type="text" name="email" id="email" required="" >
 
-            <label>e-mail</label>
+            <label>E-mail</label>
             <?php if (!empty($error) && $error === "email") { ?>
                <div class="error-message">e-mail invalide</div>
             <?php } ?>
          </div>
 
          <div class="user-box">
-            <input type="password" name="password" id="password" required="">
+            <input autocomplete="off"  type="password" name="password" id="password" required="" >
 
-            <label>mot de passe</label>
+            <label>Mot de passe</label>
             <?php if (!empty($error) && $error === "mdp") { ?>
                <div class="error-message">Le mot de passe doit contenir 2 majuscules, 2 chiffres et 8 lettres minimum</div>
             <?php } ?>
          </div>
 
          <div class="register">
-            <input class="registered" type="submit" value="S'inscrire">
+            <input autocomplete="off"  class="registered" type="submit" value="S'inscrire">
          </div>
          <div class="register">
             <span class="txt1">

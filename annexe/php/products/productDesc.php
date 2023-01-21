@@ -4,7 +4,7 @@
 <head>
    <title>Produits - E-commerce de manga</title>
    <link rel="stylesheet" type="text/css" href="../../../css/style.css" media="screen" />
-   <link rel="stylesheet" type="text/css" href="../../../css/productPage.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../css/productDesc.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../css/menu.css" media="screen" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -17,7 +17,6 @@
       ?>
    </header>
    <main>
-      <h1>Nos produits</h1>
       <?php
       require_once(__DIR__ . "/product.php");
       require_once(dirname(__DIR__) . "/database/PDOSelect.php");
@@ -48,14 +47,15 @@
             <img src="../../../img/<?= $product->getImg() ?>" alt="<?= $product->getName() ?>">
          </div>
          <div class="productDescText">
-            <h2><?= $product->getName() ?></h2>
-            <p><?= $product->getPrice() ?> €</p>
-            <p>Stock : <?= $stock["quantite"] ?></p>
-            <p><?= $product->getDescription() ?></p>
+            <div class="productName"><?= $product->getName() ?></div>
+            <div class="price"><?= $product->getPrice() ?> €</div>
+            <div class="stock">Stock : <?= $stock["quantite"] ?></div>
+            <div class="description"><?= $product->getDescription() ?></div>
+            <div class="addCart"><button onclick="location.href='../pay/addToCart.php?id=<?= $id_prod ?>'" class="auteur" role="button">Ajouter au panier</button>
+            </div>
          </div>
-         <a href="../pay/addToCart.php?id=<?= $id_prod ?>">
-            <button>Ajouter au panier</button>
-         </a>
+
+
       </div>
    </main>
 </body>

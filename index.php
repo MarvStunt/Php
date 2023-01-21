@@ -36,6 +36,11 @@ if (!empty($_GET["success"])) {
       ?>
    </header>
    <main>
+      <div class="title">
+         <h1>Qui sommes nous ?</h1>
+         <div class="presentation">Manga K est une entreprise fictive crée uniquement dans le but d'avoir une bonne note lors d'un projet PHP.</div>
+         <div class="presentation">Il ne s'agit en aucun cas d'une conccurence directe avec la <a class="link" href="https://librairiedud.com/" target="_blank">librairie du D.</a> </div>
+      </div>
       <section id="reference">
          <div class="title">
             <h1>Nos principales références</h1>
@@ -56,17 +61,19 @@ if (!empty($_GET["success"])) {
             <h1>Nos principaux auteurs</h1>
          </div>
          <ul class="references">
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Eiichiro Oda'" class="voirProduit" role="button"><span class="text">Eiichirō Oda</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Masashi Kishimoto'" class="voirProduit" role="button"><span class="text">Masashi Kishimoto</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Tite Kubo'" class="voirProduit" role="button"><span class="text">Tite Kubo</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yosuke Nomura'" class="voirProduit" role="button"><span class="text">Yosuke Nomura</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Hajime Isayama'" class="voirProduit" role="button"><span class="text">Hajime Isayama</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yosuke Murata'" class="voirProduit" role="button"><span class="text">Yosuke Murata</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Kohei Horikoshi'" class="voirProduit" role="button"><span class="text">Kōhei Horikoshi</span></button></li>
-            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yoshihiro Togashi'" class="voirProduit" role="button"><span class="text">Yoshihiro Togashi</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Eiichiro Oda'" class="auteur" role="button"><span class="text">Eiichirō Oda</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Masashi Kishimoto'" class="auteur" role="button"><span class="text">Masashi Kishimoto</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Tite Kubo'" class="auteur" role="button"><span class="text">Tite Kubo</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yosuke Nomura'" class="auteur" role="button"><span class="text">Yosuke Nomura</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Hajime Isayama'" class="auteur" role="button"><span class="text">Hajime Isayama</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yosuke Murata'" class="auteur" role="button"><span class="text">Yosuke Murata</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Kohei Horikoshi'" class="auteur" role="button"><span class="text">Kōhei Horikoshi</span></button></li>
+            <li><button onclick="location.href='annexe/php/products/productPage.php?auteur=Yoshihiro Togashi'" class="auteur" role="button"><span class="text">Yoshihiro Togashi</span></button></li>
          </ul>
       </section>
       <footer>
+         <p>S3T - G4</p>
+         <p>Conil Marvin - Lopes Mateus</p>
          <p>Copyright © 2023 Manga K. All rights reserved.</p>
       </footer>
 </body>
