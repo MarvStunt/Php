@@ -34,3 +34,11 @@ h1 {
 	margin-left: -30px;
 	background-color: #777;
 }
+
+footer {
+    background-color: #3a3a3a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+	margin-top: 5vh;
+}

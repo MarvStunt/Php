@@ -1,0 +1,35 @@
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh 2vw;
+    background-color: #3a3a3a;
+    margin: auto;
+    width: 50%;
+    height: 50vh;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.btn {
+    display: block;
+    background: #fff;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    font-size: medium;
+    color: #3a3a3a;
+    font-weight: bold;
+    text-align: center;
+    border: #fff solid 2px;
+    transition: all 0.2s ease-in-out;
+    margin: 3vh 0;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background: #3a3a3a;
+    color: rgb(255, 251, 0);
+}

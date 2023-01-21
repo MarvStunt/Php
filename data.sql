@@ -69,7 +69,6 @@ VALUES
    ("Manga","OPT2","OPT2", "One Piece Tome 2", 17.5, 11,"OnePiece","Eiichiro Oda"),
    ("Manga","OPT3","OPT3", "One Piece Tome 3", 17.5, 11,"OnePiece","Eiichiro Oda"),
    ("Manga","OPT4","OPT4", "One Piece Tome 4", 17.5, 11,"OnePiece","Eiichiro Oda"),
-   ("Manga","OPT5","OPT5", "One Piece Tome 5", 17.5, 11,"OnePiece","Eiichiro Oda"),
    ("Manga","N1","N1", "Naruto Tome 1", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N2","N2", "Naruto Tome 2", 21.5, 15,"Naruto","Masashi Kishimoto"),
    ("Manga","N3","N3", "Naruto Tome 3", 21.5, 15,"Naruto","Masashi Kishimoto"),
@@ -107,7 +106,8 @@ VALUES
 
 -- Value gestionStock
 INSERT INTO gestionStock (id_produit, quantite, dateModif)
-SELECT id_produit, FLOOR(RAND() * 40) + 40, CURDATE()
+SELECT id_produit, FLOOR(RAND() * 40) + 40, DATE_SUB(CURDATE(), INTERVAL FLOOR(RAND() * 30) DAY)
 FROM produit;
+
 
    

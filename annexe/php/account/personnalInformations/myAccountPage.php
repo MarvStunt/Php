@@ -58,40 +58,39 @@ $password = $client["password"];
          <h1>Mon compte</h1>
       </div>
 
-      <h2>Informations client</h1>
-         <div class="personnalInfos">
-            <div class="write">
-               <div class="infos">
-                  <div class="infoName">
-                     Nom: </div>
-                  <div class="reveal"><?= $nom ?></div>
-               </div>
-               <div class="infos">
-                  <div class="infoName">
-                     Prénom: </div>
-                  <div class="reveal"><?= $prenom ?></div>
-               </div>
-               <div class="infos">
-                  <div class="infoName">
-                     E-mail: </div>
-                  <div class="reveal"><?= $email ?></div>
-               </div>
-               <div class="infos">
-                  <div class="infoName">
-                     Mot de passe: </div><input class="mdp" type="password" id="password" value="<?= $password ?>" disabled>
-                  <button class="btn" id="password" onclick="showPassword()"><img src="../../../../assets/img/eye.png"></button>
-               </div>
+      <div class="personnalInfos">
+         <div class="write">
+            <div class="infos">
+               <div class="infoName">
+                  Nom :</div>
+               <div class="reveal"><?= $nom ?></div>
             </div>
-            <div class="buttons">
-               <button class="btn" onclick="location.href='./billingPage.php'">Consulter mes dernières facturations</button>
-               <!-- Bouton "se déconnecter" qui destroy la session actuelle -->
-               <button class="btn" onclick="location.href='../logout.php'">Se déconnecter</button>
-               <!-- Bouton qui redirige sur la page admin que si c'est le gérant -->
-               <?php if ($_SESSION["user"]["email"] == "gerant@gmail.com") { ?>
-                  <button class="btn" onclick="location.href='./adminPage.php'">Page d'administration</button>
-               <?php } ?>
+            <div class="infos">
+               <div class="infoName">
+                  Prénom :</div>
+               <div class="reveal"><?= $prenom ?></div>
+            </div>
+            <div class="infos">
+               <div class="infoName">
+                  E-mail :</div>
+               <div class="reveal"><?= $email ?></div>
+            </div>
+            <div class="infos">
+               <div class="infoName">
+                  Mot de passe :</div><input class="mdp" type="password" id="password" value="<?= $password ?>" disabled>
+               <button class="btn" id="password" onclick="showPassword()"><img src="../../../../assets/img/eye.png"></button>
             </div>
          </div>
+         <div class="buttons">
+            <button class="btn" onclick="location.href='./billingPage.php'">Consulter mes dernières facturations</button>
+            <!-- Bouton "se déconnecter" qui destroy la session actuelle -->
+            <button class="btn" onclick="location.href='../logout.php'">Se déconnecter</button>
+            <!-- Bouton qui redirige sur la page admin que si c'est le gérant -->
+            <?php if ($_SESSION["user"]["email"] == "gerant@gmail.com") { ?>
+               <button class="btn" onclick="location.href='./adminPage.php'">Page d'administration</button>
+            <?php } ?>
+         </div>
+      </div>
    </main>
 </body>
 

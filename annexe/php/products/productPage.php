@@ -74,12 +74,12 @@
             } else if (!empty($_GET["BestSeller"])) {
 
                // // Récupération des produits
-               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.quantite<=60");
+               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.quantite<=10 AND g.quantite > 0");
                $products = $requeteProd->fetchAll(PDO::FETCH_ASSOC);
             } else if (!empty($_GET["New"])) {
 
                // Récupération des produits
-               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.dateModif >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)");
+               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.dateModif >= DATE_SUB('2023-01-21', INTERVAL 9 DAY)");
                $products = $requeteProd->fetchAll(PDO::FETCH_ASSOC);
             } else if (!empty($_GET["auteur"])) {
 
@@ -123,7 +123,7 @@
                      <?php
                      } else {
                      ?>
-                        <button onclick="location.href='productDesc.php?id=<?= $prod->getId(); ?>'" class="voirProduit" role="button"><span class="text">Voir produit</span></button>
+                        <button onclick="location.href='productDesc.php?id=<?= $prod->getId(); ?>'" class="voirProduit" role="button">Voir produit</button>
                      <?php
                      }
                      ?>

@@ -29,12 +29,12 @@ if (!empty($_COOKIE["login"])) {
    <?php
    // Reception des erreurs
    if (!empty($_GET["error"])) {
-      echo "<p style='color:red'>" . $_GET["error"] . "</p>";
+      echo "<div class='title'><h1 style='color:red'>" . $_GET["error"] . "</h1></div>";
    }
 
    // Reception des plus de stock
    if (!empty($_GET["success"])) {
-      echo "<p style='color:green'>" . $_GET["success"] . "</p>";
+      echo "<div class='title'><h1 style='color:green'>" . $_GET["success"] . "</h1></div>";
    }
    ?>
    <main>

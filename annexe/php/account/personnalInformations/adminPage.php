@@ -15,6 +15,7 @@ if ($_SESSION["user"]["email"] != "gerant@gmail.com") {
    <title>Page admin</title>
    <link rel="stylesheet" type="text/css" href="../../../../css/style.css" media="screen" />
    <link rel="stylesheet" type="text/css" href="../../../../css/menu.css" media="screen" />
+   <link rel="stylesheet" type="text/css" href="../../../../css/adminPage.css" media="screen" />
 </head>
 
 <body>
@@ -24,14 +25,17 @@ if ($_SESSION["user"]["email"] != "gerant@gmail.com") {
       require_once(dirname(dirname(dirname(dirname(__DIR__)))) . "/menu.php");
       ?>
    </header>
-   <h1>Page d'administration du site</h1>
+   <div class="title">
+      <h1>Page d'administration du site</h1>
+   </div>
 
-   <button onclick="location.href='./admin/stockManagement/SM.php'">Gérer les stocks</a>
-   <button onclick="location.href='./admin/userManagement/UM.php'">Gérer les utilisateurs</a>
-   <button onclick="location.href='./admin/productManagement/PM.php'">Gérer les produits</a>
-   <button onclick="location.href='./admin/providerManagement/PrM.php'">Gérer les fournisseur</a>
-   <button onclick="location.href='./admin/stats/stats.php'">Consulter les statistiques du site</a>
-
+   <div class="buttons">
+      <button class="btn" onclick="location.href='./admin/stockManagement/SM.php'">Gérer les stocks</button>
+      <button class="btn" onclick="location.href='./admin/userManagement/UM.php'">Gérer les utilisateurs</button>
+      <button class="btn" onclick="location.href='./admin/productManagement/PM.php'">Gérer les produits</button>
+      <button class="btn" onclick="location.href='./admin/providerManagement/PrM.php'">Gérer les fournisseur</button>
+      <button class="btn" onclick="location.href='./admin/stats/stats.php'">Consulter les statistiques du site</button>
+   </div>
 </body>
 
 </html>
