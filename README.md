@@ -1,5 +1,9 @@
 # Projet PHP
 
+## Login pour accéder au pannel admin
+- login: gerant@gmail.com
+- mdp: AZerty00
+
 ## Description
 Projet de site web d'e-commerce en PHP.  
 Le thème choisis est la vente de manga. :womans_hat:
