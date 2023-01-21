@@ -22,7 +22,6 @@ usort($facturations, function ($a, $b) {
 <html>
 
 <head>
-   <link rel="icon" type="image/png" href="../../../../assets/img/logo.png" />
    <title>Mon compte</title>
    <link rel="icon" type="image/png" href="../../../../assets/img/logo.png" />
    <link rel="stylesheet" type="text/css" href="../../../../css/style.css" media="screen" />

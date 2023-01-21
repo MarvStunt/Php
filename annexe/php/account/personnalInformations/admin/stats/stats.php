@@ -25,6 +25,7 @@ if (!empty($_POST["recherche"])) {
 
 <head>
     <title>Stats prodiuts</title>
+    <link rel="icon" type="image/png" href="../../../../../../assets/img/logo.png" />
     <link rel="stylesheet" type="text/css" href="../../../../../../css/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../../../../../css/menu.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../../../../../../css/basket.css" media="screen" />
