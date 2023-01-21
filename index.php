@@ -40,9 +40,9 @@ if (!empty($_COOKIE["login"])) {
    ?>
    <main>
       <div class="title">
-         <h1>Qui sommes nous ?</h1>
-         <div class="presentation">Manga K est une entreprise fictive crée uniquement dans le but d'avoir une bonne note lors d'un projet PHP.</div>
-         <div class="presentation">Il ne s'agit en aucun cas d'une conccurence directe avec la <a class="link" href="https://librairiedud.com/" target="_blank">librairie du D.</a> </div>
+         <h1>Qui sommes-nous ?</h1>
+         <div class="presentation">Manga K est une entreprise fictive créée uniquement dans le but d'avoir une bonne note lors d'un projet PHP.</div>
+         <div class="presentation">Il ne s'agit en aucun cas d'une concurrence directe avec la <a class="link" href="https://librairiedud.com/" target="_blank">librairie du D.</a> </div>
       </div>
       <section id="reference">
          <div class="title">

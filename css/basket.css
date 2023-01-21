@@ -287,3 +287,11 @@ h1 {
 .table-data7 {
     flex: 1;
 }
+
+@media screen and (max-width: 1000px) {
+    .table-row .table-data:nth-child(1) img {
+        width: 4vh;
+        height: 9vw;
+        margin-left: 1vh;
+    }
+}

@@ -15,11 +15,11 @@ Le thème choisis est la vente de manga. :womans_hat:
 ## Fonctionnalités
 
 ### Resonsive
-- [x] Site web partiellement responsive, certaines pages ne sont pas responsive
+- [x] Responsive 
 
 ### Comptes
 - [x] Inscription
-- [x] Connection
+- [x] Connection 
 - [x] Déconnection
 - [x] Consultation des informations personnelles
 - [x] Consultation des commandes

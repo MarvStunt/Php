@@ -29,14 +29,14 @@
             }
             require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
 
-            // On affiche le message d'ajout à son panier en vert
-            if (isset($_GET["add"])) {
-               echo "<p style='color:green'>Le produit a bien été ajouté à votre panier</p>";
-            }
             ?>
          </header>
       </header>
       <main>
+         <?php
+         if (isset($_GET["add"])) {
+         echo "<div class='title'><h1 style='color:green'>Le produit a bien été ajouté à votre panier</h1></div>";
+         }?>
          <div class="title">
             <?php if (!empty($_GET["reference"])) {
             ?>

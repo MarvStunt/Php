@@ -59,8 +59,8 @@ header {
 }
 
 .logo {
-    width: 5vw;
-    height: 7vh;
+    width: 70px;
+    height: 70px;
     margin: 0 auto 1vh auto ;
     padding: .5vh;
 }
@@ -92,11 +92,6 @@ header {
     .basket {
         width: 4vh;
         height: 4vh;
-    }
-
-    .logo {
-        width: 12vw;
-        height: 10vh;
     }
 }
 

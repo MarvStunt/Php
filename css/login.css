@@ -131,7 +131,7 @@
 .connect:hover {
     cursor: pointer;
     background: #3a3a3a;
-    color:rgb(255, 251, 0);
+    color: rgb(255, 251, 0);
 }
 
 .register {
@@ -142,4 +142,34 @@
 .txt2 {
     text-decoration: none;
     color: rgb(255, 251, 0);
+}
+
+@media screen and (max-width: 1000px) {
+    .login-box {
+        width: 40vh;
+        padding: 2vh;
+        margin: 3vw auto;
+    }
+
+    .remember input[type="checkbox"]+label {
+        width: 2.6vh;
+        height: 2.8vw;
+        margin-bottom: 2vw;
+    }
+
+    .remember input[type="checkbox"]+label:before {
+        width: 1vh;
+        height: 2vw;
+        left: .2vh;
+        top: .3vw;
+    }
+
+    .remember input[type="checkbox"]:checked+label:before {
+        left: 1.4vh;
+    }
+
+    .text {
+        margin-left: 1vh;
+        padding-top: .2vw;
+    }
 }
