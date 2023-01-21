@@ -8,8 +8,6 @@ $pdo = getPDO();
 $requetePanier = $pdo->query("SELECT produits FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
 $panier = $requetePanier->fetch(PDO::FETCH_ASSOC);
 
-
-
 // Transformer le JSON object en tableau php pour le manipuler si il existe
 if ($panier["produits"] != null) {
    $panier = json_decode($panier["produits"], true);
@@ -17,14 +15,12 @@ if ($panier["produits"] != null) {
    $panier = [];
 }
 
-
 // Supprimer le produit du panier
 foreach ($panier as $key => $value) {
    if ($value["id_produit"] == $_GET["id"]) {
       unset($panier[$key]);
    }
 }
-
 
 $taille = count($panier);
 // Transformer le tableau php en JSON object pour l'envoyer à la base de données
@@ -36,8 +32,5 @@ if ($taille == 0) {
 } else {
    $requetePanier = $pdo->query("UPDATE panier SET produits = '$panier' WHERE id_client = " . $_SESSION["user"]["id_client"]);
 }
-
-$erreur = $pdo->errorInfo()[2];
-echo $erreur;
 
 header("Location: ../account/basketPage.php?delete=true");

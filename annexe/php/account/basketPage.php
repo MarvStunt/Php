@@ -1,6 +1,15 @@
 <?php
 require_once dirname(__DIR__) . '/global.php';
 
+$pdo = getPDO();
+
+// Vérification de la connexion à la BDD
+if ($pdo == null) {
+	header("Location: ../../../index.php?error=Erreur de connexion à la base de données");
+	exit();
+}
+
+
 if (!isLoggedIn()) {
 	header("Location: loginPage.php?error=Veuillez vous connecter pour accéder à votre panier");
 	exit();
@@ -41,7 +50,6 @@ if (!isLoggedIn()) {
 				<?php
 				// Connexion à la base de données
 				require_once dirname(__DIR__) . "/database/PDOSelect.php";
-				$pdo = getPDO();
 
 				// Récupération du panier du client si il en a un
 				$requetePanier = $pdo->query("SELECT produits FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
@@ -72,7 +80,7 @@ if (!isLoggedIn()) {
 				?>
 					<div class="table-row">
 						<div class="table-data"><img class="article" src="../../../assets/img/<?= $prod["image"] ?>.png">
-							<div class="desc">description text about article 1</div>
+							<div class="desc"><?= $prod["referenceProduit"] . ' - ' . $prod["titreProduit"] ?></div>
 						</div>
 						<div class="table-data"><?= $prod["prixPublic"] * $value ?></div>
 						<div class="table-data"><?= $value ?>
@@ -83,7 +91,8 @@ if (!isLoggedIn()) {
 						</div>
 						<div class="table-data">
 							<button class="delete" onclick="window.location.href='deleteFromCart.php?id=<?= $key ?>'">
-							<img class="trash" src="../../../assets/img/trash.png" alt="poubelle"></button></div>
+								<img class="trash" src="../../../assets/img/trash.png" alt="poubelle"></button>
+						</div>
 					</div>
 
 
@@ -102,7 +111,7 @@ if (!isLoggedIn()) {
 		</div>
 
 		<div class="final">
-			<div class="total"><?=$total?></div>
+			<div class="total">Prix total : <?= $total ?>€</div>
 			<button class="buy" onclick="window.location.href='../pay/pay.php?=pay'">Commander</button>
 		</div>
 	</main>

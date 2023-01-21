@@ -6,6 +6,18 @@ require_once __DIR__ . "/facturation.php";
 // Connexion à la BDD
 $pdo = getPDO();
 
+// On vérifie la connection à la BDD
+if (!$pdo) {
+    header("Location: /index.php?error=Erreur lors de la connexion à la base de données.");
+    exit();
+}
+
+// On vérifie que le client est connecté
+if (!isset($_SESSION["user"])) {
+    header("Location: /index.php?error=Vous devez être connecté pour accéder à cette page.");
+    exit();
+}
+
 // Récupération du panier du client si il en a un
 $requetePanier = $pdo->query("SELECT produits FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
 $panier = $requetePanier->fetch(PDO::FETCH_ASSOC);
@@ -44,13 +56,11 @@ if (empty($panierQuantite)) {
     exit();
 }
 
-// On envois le mail confirmant la commande
-
 // Récupération des informations pour envoyer le mail
 $requeteIdPanier = $pdo->query("SELECT id_panier FROM panier WHERE id_client = " . $_SESSION["user"]["id_client"]);
 $idPanier = $requeteIdPanier->fetch(PDO::FETCH_ASSOC);
-
 $total = 0;
+
 foreach ($panierQuantite as $key => $value) {
     $requeteProd = $pdo->query("SELECT * FROM produit WHERE id_produit = " . $key);
     $prod = $requeteProd->fetch(PDO::FETCH_ASSOC);
@@ -59,7 +69,8 @@ foreach ($panierQuantite as $key => $value) {
 
 $date = date("Y-m-d H:i:s");
 $facturation = new facturation($idPanier["id_panier"], $date, $_SESSION["user"]["nom"], $_SESSION["user"]["prenom"], "conilmarvin@gmail.com", $panier,$total);
-if(!$facturation->sendMail()){
+
+if(!$facturation->sendMailClient()){
     header("Location: /index.php?error=Une erreur est survenue lors de l'envoi du mail !");
     exit();
 }

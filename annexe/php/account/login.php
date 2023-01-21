@@ -2,9 +2,6 @@
 require_once dirname(__DIR__) . '/database/PDOSelect.php';
 require_once dirname(__DIR__) . '/global.php';
 
-
-
-
 // Vérification que les données existes et ne sont pas vides
 if (!empty($_POST['E-mail']) && !empty($_POST['password'])) {
    $email = $_POST['E-mail'];

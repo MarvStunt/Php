@@ -1,0 +1,61 @@
+.infos {
+    padding: 2vh 2vw;
+    font-weight: bold;
+    font-size: 20px; 
+    display: inline-block;
+}
+
+.btn {
+    display: block;
+    background: #fff;
+    border: none;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    font-size: medium;
+    color: #3a3a3a;
+    font-weight: bold;
+    text-align: center;
+    border: #fff solid 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+#password
+
+.btn:hover {
+    cursor: pointer;
+    background: #3a3a3a;
+    color:rgb(255, 251, 0);
+}
+
+.reveal {
+    color: rgb(255, 251, 0);
+    display: inline-block;
+}
+
+.personnalInfos {
+    width: 45vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.write {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh 2vw;
+}
+
+.buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh 2vw;
+}
+
+

@@ -16,10 +16,12 @@
       require_once(dirname(dirname(dirname(__DIR__))) . "/menu.php");
       ?>
    </header>
+
    <main>
       <?php
       require_once(__DIR__ . "/product.php");
       require_once(dirname(__DIR__) . "/database/PDOSelect.php");
+
       // Reception de l'id du produit
       $id_prod = $_GET["id"];
 
@@ -42,17 +44,31 @@
       $stock = $requeteStock->fetch(PDO::FETCH_ASSOC);
 
       ?>
+      
       <div class="productDesc">
          <div class="productDescImg">
             <img src="../../../img/<?= $product->getImg() ?>" alt="<?= $product->getName() ?>">
          </div>
          <div class="productDescText">
             <div class="productName"><?= $product->getName() ?></div>
-            <div class="price"><?= $product->getPrice() ?> €</div>
-            <div class="stock">Stock : <?= $stock["quantite"] ?></div>
+            <div class="price">Prix : <?= $product->getPrice() ?> €</div>
+
+            <?php
+            $qtt = $stock["quantite"];
+            if ($qtt > 15) { ?>
+               <div class="stock"><?= $stock["quantite"] ?> en stock</div>
+            <?php
+            } else { ?>
+               <div class="lowStock">Il n'en reste plus que : <?= $stock["quantite"] ?></div>
+            <?php
+            }
+            ?>
+
             <div class="description"><?= $product->getDescription() ?></div>
-            <div class="addCart"><button onclick="location.href='../pay/addToCart.php?id=<?= $id_prod ?>'" class="auteur" role="button">Ajouter au panier</button>
-            </div>
+            
+               <button class="addCart" onclick="location.href='../pay/addToCart.php?id=<?= $id_prod ?>'" class="auteur" role="button">
+                  Ajouter au panier
+               </button>
          </div>
 
 

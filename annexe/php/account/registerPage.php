@@ -1,4 +1,5 @@
 <?php
+// Réception des erreurs / succés
 if (!empty($_GET["success"])) {
    $success = htmlspecialchars($_GET["success"]);
 }
@@ -39,7 +40,7 @@ if (!empty($_GET["error"])) {
 
          <div class="personnal">
             <div class="user-box">
-               <input autocomplete="off"  type="text" name="nom" id="nom" required="" >
+               <input autocomplete="off" type="text" name="nom" id="nom" required="">
 
                <label for="nom">Nom</label>
                <?php if (!empty($error) && $error === "nom") { ?>
@@ -48,7 +49,7 @@ if (!empty($_GET["error"])) {
             </div>
 
             <div class="user-box">
-               <input autocomplete="off"  type="text" name="prenom" id="prenom" required="" >
+               <input autocomplete="off" type="text" name="prenom" id="prenom" required="">
 
                <label for="prenom">Prénom</label>
                <?php if (!empty($error) && $error === "prenom") { ?>
@@ -58,7 +59,7 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="user-box">
-            <input autocomplete="off"  type="text" name="adresse" id="adresse" required="" >
+            <input autocomplete="off" type="text" name="adresse" id="adresse" required="">
 
             <label for="adresse">Adresse</label>
             <?php if (!empty($error) && $error === "adresse") { ?>
@@ -67,7 +68,7 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="user-box">
-            <input autocomplete="off"  type="text" name="email" id="email" required="" >
+            <input autocomplete="off" type="text" name="email" id="email" required="">
 
             <label>E-mail</label>
             <?php if (!empty($error) && $error === "email") { ?>
@@ -76,7 +77,7 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="user-box">
-            <input autocomplete="off"  type="password" name="password" id="password" required="" >
+            <input autocomplete="off" type="password" name="password" id="password" required="">
 
             <label>Mot de passe</label>
             <?php if (!empty($error) && $error === "mdp") { ?>
@@ -85,7 +86,7 @@ if (!empty($_GET["error"])) {
          </div>
 
          <div class="register">
-            <input autocomplete="off"  class="registered" type="submit" value="S'inscrire">
+            <input autocomplete="off" class="registered" type="submit" value="S'inscrire">
          </div>
          <div class="register">
             <span class="txt1">

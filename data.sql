@@ -47,10 +47,9 @@ create table facturation(
 -- Table fournisseur
 create
 or replace table fournisseur(
-   id_fournisseur int not null,
+   id_fournisseur int not null primary key auto_increment,
    nom varchar(50),
-   produits json,
-   dateLivraison date
+   numTelephone varchar(20)
 );
 
 -- Table gestion stock
@@ -108,7 +107,7 @@ VALUES
 
 -- Value gestionStock
 INSERT INTO gestionStock (id_produit, quantite, dateModif)
-SELECT id_produit, FLOOR(RAND() * 50) + 50, CURDATE()
+SELECT id_produit, FLOOR(RAND() * 40) + 40, CURDATE()
 FROM produit;
 
    

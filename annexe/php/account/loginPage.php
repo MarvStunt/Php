@@ -1,11 +1,13 @@
 <?php
 include dirname(__DIR__) . "/global.php";
-// Si il est déjà conencter alors
+// Si il est déjà connectre alors
 if (isLoggedIn()) {
-   // Redirige vers la page d'accueil
-   header("Location: ./myAccountPage.php");
+   // Redirige vers les informations de son compte
+   header("Location: ./personnalInformations/myAccountPage.php");
 }
 
+
+// Gestion des erreurs / succés
 if (!empty($_GET["success"])) {
    $success = htmlspecialchars($_GET["success"]);
 }
@@ -16,7 +18,6 @@ if (!empty($_GET["error"])) {
 ?>
 <!DOCTYPE html>
 <html>
-
 
 <head>
    <title>Login</title>

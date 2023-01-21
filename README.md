@@ -1,17 +1,10 @@
-# TODO
+# Projet PHP
 
-- [ ] Mail -> gérant quand achat / plus de stock en intern
-- [ ] CSS
-- [ ] Faire la facturation après chaque achats 
-- [ ] Faire l'admin view sur le site
+## Description
+Projet de site web d'e-commerce en PHP. Le thème choisis est la vente de manga.
 
-# CSS
+## Auteurs
+* **Marvin CONIL** - *Developper* - [MarvinConil](
+* **Mateus Lopes** - *Developper* - [MateusLopes](
+* S3T - Group 4
 
-- panier
-- produit
-- grille produits
-
-# HTML
-
-- POV Gerant
-- Mon compte

@@ -36,9 +36,6 @@ footer {
     text-align: center;
 }
 
-footer p {
-    padding: 1vh 1vw;
-}
 
 .auteur {
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(142, 142, 142, 1) 100%);
@@ -60,12 +57,11 @@ footer p {
 
 .auteur span {
     background-color: #3a3a3a;
-    padding: 16px 24px;
+    padding: 2vh 2vw;
     border-radius: 6px;
     width: 15vw;
     height: 2vh;
     transition: 300ms;
-
 }
 
 .auteur:not(:disabled):hover span {
@@ -82,10 +78,32 @@ footer p {
 
 .link {
     text-decoration: none;
-    color: rgb(255, 251, 0);
-    transition: all 0.2s ease-in-out;
+    color: rgb(255,251,0);
 }
 
 .link:hover {
-    color: #000;
+    color: #fff;
+}
+
+@media screen and (max-width: 1000px) {
+    .references li {
+        flex: 1 0 40%;
+        margin: 2vh 0;
+        padding-left: 4vw;
+    }
+
+    .references img {
+        width: 20vh;
+        height: 10vw;
+    }
+
+    .presentation {
+        font-size: medium;
+    }
+
+    .auteur span {
+        padding: 1vh 5vw;
+        width: 35vw;
+        height: 2vh;
+    }
 }

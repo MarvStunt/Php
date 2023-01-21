@@ -4,6 +4,11 @@ class BDD {
 
    private /* PDO */ $pdo;
 
+   /**
+    * Get the PDO object
+    *
+    * @return PDO
+    */
    function getPdo(): PDO
    {
       if ($this->pdo === null) {

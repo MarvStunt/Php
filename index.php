@@ -6,15 +6,6 @@ if (!empty($_COOKIE["login"])) {
    $_SESSION["login"] = $_COOKIE["login"];
 }
 
-// Reception des erreurs
-if (!empty($_GET["error"])) {
-   echo "<p style='color:red'>" . $_GET["error"] . "</p>";
-}
-
-// Reception des plus de stock
-if (!empty($_GET["success"])) {
-   echo "<p style='color:green'>" . $_GET["success"] . "</p>";
-}
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +26,17 @@ if (!empty($_GET["success"])) {
       require_once(__DIR__ . "/menu.php")
       ?>
    </header>
+   <?php
+   // Reception des erreurs
+   if (!empty($_GET["error"])) {
+      echo "<p style='color:red'>" . $_GET["error"] . "</p>";
+   }
+
+   // Reception des plus de stock
+   if (!empty($_GET["success"])) {
+      echo "<p style='color:green'>" . $_GET["success"] . "</p>";
+   }
+   ?>
    <main>
       <div class="title">
          <h1>Qui sommes nous ?</h1>

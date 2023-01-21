@@ -2,10 +2,7 @@
 // Connexion à la base de données
 require_once dirname(__DIR__) . '/database/PDOSelect.php';
 
-
 if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['adresse'])) {
-
-
    $email = $_POST['email'];
    $password = $_POST['password'];
    $nom = $_POST['nom'];
@@ -31,7 +28,15 @@ if (!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['nom'
       header("Location: registerPage.php?error=mdp");
       die();
    }
+
    $pdo = getPdo();
+
+   // On vérifie que la connection à la BDD marche
+   if (!$pdo) {
+      header("Location: registerPage.php?error=Erreur de connexion à la base de données");
+      die();
+   }
+
    // Vérification de l'unicité de l'e-mail
    $requete = $pdo->prepare("SELECT email FROM client WHERE email = :email");
    $requete->bindParam(':email', $email);

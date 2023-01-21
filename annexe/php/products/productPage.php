@@ -74,12 +74,12 @@
             } else if (!empty($_GET["BestSeller"])) {
 
                // // Récupération des produits
-               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.quantite<=10");
+               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.quantite<=60");
                $products = $requeteProd->fetchAll(PDO::FETCH_ASSOC);
             } else if (!empty($_GET["New"])) {
 
                // Récupération des produits
-               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.dateModif >= DATE_SUB(CURRENT_DATE(), INTERVAL 15 DAY)");
+               $requeteProd = $pdo->query("SELECT * FROM produit p, gestionStock g WHERE g.id_produit=p.id_produit AND g.dateModif >= DATE_SUB(CURRENT_DATE(), INTERVAL 7 DAY)");
                $products = $requeteProd->fetchAll(PDO::FETCH_ASSOC);
             } else if (!empty($_GET["auteur"])) {
 
@@ -134,6 +134,13 @@
             ?>
          </div>
       </main>
+      <footer>
+         <p>S3T - G4</p>
+         <p>Conil Marvin - Lopes Mateus</p>
+         <p>Copyright © 2023 Manga K. All rights reserved.</p>
+      </footer>
    </body>
+
+   
 
    </html>

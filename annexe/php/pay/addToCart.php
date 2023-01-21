@@ -8,7 +8,10 @@ if (!isLoggedIn()) {
     exit();
 }
 
+// Connection à la BDD
 $pdo = getPDO();
+
+// On vérifie que la connexion à la BDD c'est bien effectué
 if ($pdo == null) {
     echo "Erreur de connexion à la base de données";
     exit();

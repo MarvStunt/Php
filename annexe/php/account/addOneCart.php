@@ -4,6 +4,13 @@ require_once(dirname(__DIR__) . "/database/PDOSelect.php");
 require_once(dirname(__DIR__) . "/global.php");
 
 $pdo = getPDO();
+
+// On vérifie la connection à la BDD
+if (!$pdo) {
+   header("Location: ../../../index.php?error=Erreur de connexion à la base de données");
+   die();
+}
+
 $idProduit = $_GET["id"];
 
 // Récupération du panier du client si il en a un
